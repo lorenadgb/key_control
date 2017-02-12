@@ -1,0 +1,23 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  host: localhost
+
+development:
+  <<: *default
+  database: key_control_development
+  min_messages: warning
+  username: pguser
+  password: password
+
+test:
+  <<: *default
+  database: key_control_test
+  min_messages: warning
+  username: pguser
+  password: password
+
+#production: &production
+#  <<: *default
+#
