@@ -18,7 +18,7 @@
 
   <div class="field">
     <%= f.label :building_type %>
-    <%= f.text_area :building_type %>
+    <%= f.select :building_type, BuildingType.to_a %>
   </div>
 
   <div class="field">

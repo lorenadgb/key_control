@@ -38,7 +38,7 @@
 
   <div class="field">
     <%= f.label :gender %>
-    <%= f.text_area :gender %>
+    <%= f.select :gender, Gender.to_a %>
   </div>
 
   <div class="field">

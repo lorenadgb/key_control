@@ -1,0 +1,7 @@
+pt-BR:
+  enumerations:
+    building_type:
+      apartment: Apartamento
+      home: Casa
+      room: Sala
+      shop: Loja
