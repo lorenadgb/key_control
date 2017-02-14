@@ -1,0 +1,38 @@
+<%= form_for(building) do |f| %>
+  <% if building.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(building.errors.count, "error") %> prohibited this building from being saved:</h2>
+
+      <ul>
+      <% building.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :owner %>
+    <%= f.collection_select :owner_id, Owner.all, :id, :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :building_type %>
+    <%= f.text_area :building_type %>
+  </div>
+
+  <div class="field">
+    <%= f.label :observation %>
+    <%= f.text_area :observation %>
+  </div>
+
+  <div class="field">
+    <%= f.label :active %>
+    <%= f.check_box :active %>
+  </div>
+
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

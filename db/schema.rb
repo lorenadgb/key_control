@@ -10,11 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170213220113) do
+ActiveRecord::Schema.define(version: 2017021321235475) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
   enable_extension "hstore"
+
+  create_table "buildings", force: :cascade do |t|
+    t.string   "building_type"
+    t.string   "observation"
+    t.boolean  "active",        default: true
+    t.integer  "owner_id"
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+    t.index ["owner_id"], name: "index_buildings_on_owner_id", using: :btree
+  end
 
   create_table "owners", force: :cascade do |t|
     t.string   "name"
@@ -32,4 +42,5 @@ ActiveRecord::Schema.define(version: 20170213220113) do
     t.datetime "updated_at",    null: false
   end
 
+  add_foreign_key "buildings", "owners"
 end
