@@ -1,0 +1,34 @@
+<div class="field">
+  <%= f.label :street_type %>
+  <%= f.select :street_type, StreetType.to_a %>
+</div>
+
+<div class="field">
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+</div>
+
+<div class="field">
+  <%= f.label :number %>
+  <%= f.number_field :number %>
+</div>
+
+<div class="field">
+  <%= f.label :complement %>
+  <%= f.text_field :complement %>
+</div>
+
+<div class="field">
+  <%= f.label :city %>
+  <%= f.text_field :city %>
+</div>
+
+<div class="field">
+  <%= f.label :neighborhood %>
+  <%= f.text_field :neighborhood %>
+</div>
+
+<div class="field">
+  <%= f.label :observation %>
+  <%= f.text_field :observation %>
+</div>
