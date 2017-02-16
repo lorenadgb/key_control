@@ -15,6 +15,7 @@ class BuildingsController < ApplicationController
   # GET /buildings/new
   def new
     @building = Building.new
+    @building.build_address
   end
 
   # GET /buildings/1/edit
@@ -69,6 +70,7 @@ class BuildingsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def building_params
-    params.require(:building).permit(:owner, :owner_id, :building_type, :observation, :active)
+    params.require(:building).permit(:owner, :owner_id, :building_type, :observation, :active,
+                                     address_attributes: [:id, :name, :number, :complement, :city, :neighborhood, :street_type, :observation])
   end
 end

@@ -26,6 +26,9 @@ ActiveRecord::Schema.define(version: 20170215004342) do
     t.string   "observation"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
+    t.string   "addressable_type"
+    t.integer  "addressable_id"
+    t.index ["addressable_type", "addressable_id"], name: "index_addresses_on_addressable_type_and_addressable_id", using: :btree
   end
 
   create_table "buildings", force: :cascade do |t|
