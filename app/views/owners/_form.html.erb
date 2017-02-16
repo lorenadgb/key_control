@@ -61,6 +61,10 @@
     <%= f.text_area :fax %>
   </div>
 
+  <%= f.fields_for :address, @owner.address do |b| %>
+    <%= render 'addresses/form', f: b %>
+  <% end %>
+
   <div class="actions">
     <%= f.submit %>
   </div>

@@ -15,6 +15,7 @@ class OwnersController < ApplicationController
   # GET /owners/new
   def new
     @owner = Owner.new
+    @owner.build_address
   end
 
   # GET /owners/1/edit
@@ -70,6 +71,7 @@ class OwnersController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def owner_params
       params.require(:owner).permit(:name, :mother, :father, :cpf, :nationality, :gender, :birthdate,
-                                    :email, :phone_number, :mobile_number, :fax)
+                                    :email, :phone_number, :mobile_number, :fax,
+                                    address_attributes: [:id, :name, :number, :complement, :city, :neighborhood, :street_type, :observation])
     end
 end
