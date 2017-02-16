@@ -30,6 +30,10 @@
     <%= render 'addresses/form', f: b %>
   <% end %>
 
+  <%= f.fields_for :keys do |b| %>
+    <%= render 'keys/form', f: b %>
+  <% end %>
+
   <div class="field">
     <%= f.label :active %>
     <%= f.check_box :active %>
