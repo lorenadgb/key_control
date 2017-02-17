@@ -12,6 +12,7 @@
       <th>Phone number</th>
       <th>Fax</th>
       <th>Social name</th>
+      <th>Avatar</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -26,6 +27,7 @@
         <td><%= real_state_agency.phone_number %></td>
         <td><%= real_state_agency.fax %></td>
         <td><%= real_state_agency.social_name %></td>
+        <td><%= real_state_agency.avatar_url %></td>
         <td><%= link_to 'Show', real_state_agency %></td>
         <td><%= link_to 'Edit', edit_real_state_agency_path(real_state_agency) %></td>
         <td><%= link_to 'Destroy', real_state_agency, method: :delete, data: { confirm: 'Are you sure?' } %></td>

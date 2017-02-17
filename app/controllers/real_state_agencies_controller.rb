@@ -71,6 +71,7 @@ class RealStateAgenciesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def real_state_agency_params
       params.require(:real_state_agency).permit(:trade_name, :cnpj, :email, :mobile_number, :phone_number, :fax, :social_name,
+                                                :avatar,
                                                 address_attributes: [:id, :name, :number, :complement, :city, :neighborhood, :street_type, :observation])
     end
 end
