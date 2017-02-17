@@ -1,0 +1,14 @@
+pt-BR:
+  activerecord:
+    models:
+      building:
+        one: Imóvel
+        other: Imóveis
+
+    attributes:
+      building:
+        active: Ativo
+        building_type: Tipo de imóvel
+        created_at: Criado em
+        observation: Observação
+        owner: Proprietário

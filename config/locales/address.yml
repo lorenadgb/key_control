@@ -1,0 +1,17 @@
+pt-BR:
+  activerecord:
+    models:
+      address:
+        one: Endereço
+        other: Endereços
+
+    attributes:
+      address:
+        city: Cidade
+        complement: Complemento
+        created_at: Criado em
+        name: Nome
+        neighborhood: Bairro
+        number: Número
+        observation: Observação
+        street_type: Tipo de logradouro

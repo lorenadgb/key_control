@@ -1,0 +1,12 @@
+pt-BR:
+  activerecord:
+    models:
+      key:
+        one: Chave
+        other: Chaves
+
+    attributes:
+      key:
+        code: Código
+        created_at: Criado em
+        description: Descrição

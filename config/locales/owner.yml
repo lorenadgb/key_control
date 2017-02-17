@@ -1,0 +1,21 @@
+pt-BR:
+  activerecord:
+    models:
+      owner:
+        one: Chave
+        other: Chaves
+
+    attributes:
+      owner:
+        birthdate: Data de nascimento
+        cpf: CPF
+        created_at: Criado em
+        email: E-mail
+        fax: Fax
+        phone_number: Telefone fixo
+        gender: Genêro
+        mobile_number: Telefone celular
+        nationality: Nacionalidade
+        name: Nome
+        mother: Mãe
+        father: Pai
