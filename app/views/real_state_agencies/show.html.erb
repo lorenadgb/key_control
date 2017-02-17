@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Trade name:</strong>
+  <%= @real_state_agency.trade_name %>
+</p>
+
+<p>
+  <strong>Cnpj:</strong>
+  <%= @real_state_agency.cnpj %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @real_state_agency.email %>
+</p>
+
+<p>
+  <strong>Mobile number:</strong>
+  <%= @real_state_agency.mobile_number %>
+</p>
+
+<p>
+  <strong>Phone number:</strong>
+  <%= @real_state_agency.phone_number %>
+</p>
+
+<p>
+  <strong>Fax:</strong>
+  <%= @real_state_agency.fax %>
+</p>
+
+<p>
+  <strong>Social name:</strong>
+  <%= @real_state_agency.social_name %>
+</p>
+
+<%= link_to 'Edit', edit_real_state_agency_path(@real_state_agency) %> |
+<%= link_to 'Back', real_state_agencies_path %>

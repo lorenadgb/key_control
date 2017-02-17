@@ -1,0 +1,1 @@
+json.array! @real_state_agencies, partial: 'real_state_agencies/real_state_agency', as: :real_state_agency

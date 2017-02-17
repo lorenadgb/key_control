@@ -1,0 +1,2 @@
+json.extract! real_state_agency, :id, :trade_name, :cnpj, :email, :mobile_number, :phone_number, :fax, :social_name, :created_at, :updated_at
+json.url real_state_agency_url(real_state_agency, format: :json)

@@ -1,0 +1,2 @@
+module RealStateAgenciesHelper
+end

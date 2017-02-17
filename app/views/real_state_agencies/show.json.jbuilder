@@ -1,0 +1,1 @@
+json.partial! "real_state_agencies/real_state_agency", real_state_agency: @real_state_agency
