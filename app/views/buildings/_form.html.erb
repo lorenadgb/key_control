@@ -1,46 +1,17 @@
-<%= form_for(building) do |f| %>
-  <% if building.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(building.errors.count, "error") %> prohibited this building from being saved:</h2>
+<%= simple_form_for @building do |f| %>
+  <%= f.association :owner %>
+  <%= f.input :building_type, :collection => BuildingType %>
+  <%= f.input :observation %>
 
-      <ul>
-      <% building.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :owner %>
-    <%= f.collection_select :owner_id, Owner.all, :id, :name %>
-  </div>
-
-  <div class="field">
-    <%= f.label :building_type %>
-    <%= f.select :building_type, BuildingType.to_a %>
-  </div>
-
-  <div class="field">
-    <%= f.label :observation %>
-    <%= f.text_area :observation %>
-  </div>
-
-  <%= f.fields_for :address, @building.address do |b| %>
+  <%= f.simple_fields_for :address, @building.address do |b| %>
     <%= render 'addresses/form', f: b %>
   <% end %>
 
-  <%= f.fields_for :keys do |b| %>
+  <%= f.simple_fields_for :keys do |b| %>
     <%= render 'keys/form', f: b %>
   <% end %>
 
-  <div class="field">
-    <%= f.label :active %>
-    <%= f.check_box :active %>
-  </div>
+  <%= f.input :active, as: :radio_buttons %>
 
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <%= f.button :submit %>
 <% end %>

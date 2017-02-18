@@ -1,61 +1,19 @@
-<%= form_for(real_state_agency) do |f| %>
-  <% if real_state_agency.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(real_state_agency.errors.count, "error") %> prohibited this real_state_agency from being saved:</h2>
+<%= simple_form_for @real_state_agency do |f| %>
+  <%= f.file_field :avatar %>
+  <%= f.input :trade_name %>
+  <%= f.input :social_name %>
+  <%= f.input :cnpj %>
+  <%= f.input :email %>
+  <%= f.input :mobile_number %>
+  <%= f.input :phone_number %>
+  <%= f.input :fax %>
+  <%= f.input :email %>
 
-      <ul>
-      <% real_state_agency.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :trade_name %>
-    <%= f.text_field :trade_name %>
-  </div>
-
-  <div class="field">
-    <%= f.label :cnpj %>
-    <%= f.text_field :cnpj %>
-  </div>
-
-  <div class="field">
-    <%= f.label :email %>
-    <%= f.text_field :email %>
-  </div>
-
-  <div class="field">
-    <%= f.label :mobile_number %>
-    <%= f.text_field :mobile_number %>
-  </div>
-
-  <div class="field">
-    <%= f.label :phone_number %>
-    <%= f.text_field :phone_number %>
-  </div>
-
-  <div class="field">
-    <%= f.label :fax %>
-    <%= f.text_field :fax %>
-  </div>
-
-  <div class="field">
-    <%= f.label :social_name %>
-    <%= f.text_field :social_name %>
-  </div>
-
-  <%= f.fields_for :address, @real_state_agency.address do |b| %>
+  <%= f.simple_fields_for :address, @real_state_agency.address do |b| %>
     <%= render 'addresses/form', f: b %>
   <% end %>
 
-  <div class="field">
-    <%= f.label :avatar %>
-    <%= f.file_field :avatar %>
-  </div>
+  <%= f.input :active, as: :radio_buttons %>
 
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <%= f.button :submit %>
 <% end %>
