@@ -14,6 +14,7 @@ gem 'coffee-rails', '~> 4.2'
 
 gem 'enumerate_it'
 gem 'carrierwave'
+gem 'simple_form'
 
 gem 'jquery-rails'
 gem 'turbolinks', '~> 5'
