@@ -8,6 +8,7 @@
   <%= f.input :email %>
   <%= f.input :phone_number %>
   <%= f.input :mobile_number %>
+  <%= f.input :personable_type, :collection => PersonableType %>
 
   <%= f.simple_fields_for :address, @person.address do |b| %>
     <%= render 'addresses/form', f: b %>
