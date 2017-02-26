@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170217013457) do
+ActiveRecord::Schema.define(version: 20170226222420) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,10 +35,10 @@ ActiveRecord::Schema.define(version: 20170217013457) do
     t.string   "building_type"
     t.string   "observation"
     t.boolean  "active",        default: true
-    t.integer  "owner_id"
+    t.integer  "person_id"
     t.datetime "created_at",                   null: false
     t.datetime "updated_at",                   null: false
-    t.index ["owner_id"], name: "index_buildings_on_owner_id", using: :btree
+    t.index ["person_id"], name: "index_buildings_on_person_id", using: :btree
   end
 
   create_table "keys", force: :cascade do |t|
@@ -50,7 +50,7 @@ ActiveRecord::Schema.define(version: 20170217013457) do
     t.index ["building_id"], name: "index_keys_on_building_id", using: :btree
   end
 
-  create_table "owners", force: :cascade do |t|
+  create_table "people", force: :cascade do |t|
     t.string   "name"
     t.string   "mother"
     t.string   "father"
@@ -62,8 +62,9 @@ ActiveRecord::Schema.define(version: 20170217013457) do
     t.string   "phone_number"
     t.string   "mobile_number"
     t.string   "fax"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.string   "personable_type"
   end
 
   create_table "real_state_agencies", force: :cascade do |t|
@@ -79,6 +80,6 @@ ActiveRecord::Schema.define(version: 20170217013457) do
     t.string   "avatar"
   end
 
-  add_foreign_key "buildings", "owners"
+  add_foreign_key "buildings", "people"
   add_foreign_key "keys", "buildings"
 end

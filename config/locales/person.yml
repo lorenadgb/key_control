@@ -1,12 +1,12 @@
 pt-BR:
   activerecord:
     models:
-      owner:
+      person:
         one: Chave
         other: Chaves
 
     attributes:
-      owner:
+      person:
         birthdate: Data de nascimento
         cpf: CPF
         created_at: Criado em

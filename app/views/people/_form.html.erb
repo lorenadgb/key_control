@@ -1,4 +1,4 @@
-<%= simple_form_for @owner do |f| %>
+<%= simple_form_for @person do |f| %>
   <%= f.input :name %>
   <%= f.input :mother %>
   <%= f.input :father %>
@@ -9,7 +9,7 @@
   <%= f.input :phone_number %>
   <%= f.input :mobile_number %>
 
-  <%= f.simple_fields_for :address, @owner.address do |b| %>
+  <%= f.simple_fields_for :address, @person.address do |b| %>
     <%= render 'addresses/form', f: b %>
   <% end %>
 

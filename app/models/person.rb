@@ -1,4 +1,4 @@
-class Owner < ApplicationRecord
+class Person < ApplicationRecord
   extend EnumerateIt
 
   validates :name, :cpf, :email, :mobile_number, presence: true

@@ -5,7 +5,7 @@
 <table>
   <thead>
     <tr>
-      <th>Owner Name</th>
+      <th>Person Name</th>
       <th>Building Type</th>
       <th>Observation</th>
       <th>Active</th>
@@ -16,7 +16,7 @@
   <tbody>
     <% @buildings.each do |building| %>
       <tr>
-        <td><%= building.owner.name %></td>
+        <td><%= building.person.name %></td>
         <td><%= building.building_type %></td>
         <td><%= building.observation %></td>
         <td><%= building.active %></td>
