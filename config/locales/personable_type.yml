@@ -1,0 +1,5 @@
+pt-BR:
+  enumerations:
+    personable_type:
+      owner: Proprietário
+      visitor: Visitante
