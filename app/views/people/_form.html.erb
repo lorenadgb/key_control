@@ -1,18 +1,22 @@
-<%= simple_form_for @person do |f| %>
+<%= simple_form_for @person, :html => { :class => 'form-horizontal' } do |f| %>
   <%= f.input :name %>
   <%= f.input :mother %>
   <%= f.input :father %>
   <%= f.input :cpf %>
   <%= f.input :nationality %>
   <%= f.input :gender, :as => :radio_buttons, :collection => Gender %>
+  <%= f.input :birthdate %>
   <%= f.input :email %>
   <%= f.input :phone_number %>
   <%= f.input :mobile_number %>
-  <%= f.input :personable_type, :collection => PersonableType %>
+  <%= f.input :fax %>
+  <%= f.input :personable_type, collection: PersonableType %>
 
   <%= f.simple_fields_for :address, @person.address do |b| %>
     <%= render 'addresses/form', f: b %>
   <% end %>
 
-  <%= f.button :submit %>
+  <%= f.button :submit, :class => 'btn-primary' %>
+  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                people_path, :class => 'btn btn-default' %>
 <% end %>

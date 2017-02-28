@@ -1,64 +1,41 @@
-<p id="notice"><%= notice %></p>
+<%- model_class = Person -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
+</div>
 
-<p>
-  <strong>Name:</strong>
-  <%= @person.name %>
-</p>
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:name) %>:</strong></dt>
+  <dd><%= @person.name %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:mother) %>:</strong></dt>
+  <dd><%= @person.mother %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:father) %>:</strong></dt>
+  <dd><%= @person.father %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:cpf) %>:</strong></dt>
+  <dd><%= @person.cpf %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:nationality) %>:</strong></dt>
+  <dd><%= @person.nationality %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:gender) %>:</strong></dt>
+  <dd><%= @person.gender %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:birthdate) %>:</strong></dt>
+  <dd><%= @person.birthdate %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:email) %>:</strong></dt>
+  <dd><%= @person.email %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:phone_number) %>:</strong></dt>
+  <dd><%= @person.phone_number %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:mobile_number) %>:</strong></dt>
+  <dd><%= @person.mobile_number %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:fax) %>:</strong></dt>
+  <dd><%= @person.fax %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:personable_type) %>:</strong></dt>
+  <dd><%= @person.personable_type %></dd>
+</dl>
 
-<p>
-  <strong>Mother:</strong>
-  <%= @person.mother %>
-</p>
-
-<p>
-  <strong>Father:</strong>
-  <%= @person.father %>
-</p>
-
-<p>
-  <strong>CPF:</strong>
-  <%= @person.cpf %>
-</p>
-
-<p>
-  <strong>Nationality:</strong>
-  <%= @person.nationality %>
-</p>
-
-<p>
-  <strong>Gender:</strong>
-  <%= @person.gender %>
-</p>
-
-<p>
-  <strong>Birthdate:</strong>
-  <%= @person.birthdate %>
-</p>
-
-<p>
-  <strong>Email:</strong>
-  <%= @person.email %>
-</p>
-
-<p>
-  <strong>Phone Number:</strong>
-  <%= @person.phone_number %>
-</p>
-
-<p>
-  <strong>Mobile Number:</strong>
-  <%= @person.mobile_number %>
-</p>
-
-<p>
-  <strong>Fax:</strong>
-  <%= @person.fax %>
-</p>
-
-<p>
-  <strong>Personable Type:</strong>
-  <%= @person.personable_type %>
-</p>
-
-<%= link_to 'Edit', edit_person_path(@person) %> |
-<%= link_to 'Back', persons_path %>
+<%= link_to t('.back', :default => t("helpers.links.back")),
+              people_path, :class => 'btn btn-default'  %>
+<%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_person_path(@person), :class => 'btn btn-default' %>
+<%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              person_path(@person),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>
