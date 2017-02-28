@@ -1,25 +1,27 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Real State Agencies</h1>
-
-<table>
+<%- model_class = RealStateAgency -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+</div>
+<table class="table table-striped">
   <thead>
-    <tr>
-      <th>Trade name</th>
-      <th>Cnpj</th>
-      <th>Email</th>
-      <th>Mobile number</th>
-      <th>Phone number</th>
-      <th>Fax</th>
-      <th>Social name</th>
-      <th>Avatar</th>
-      <th colspan="3"></th>
-    </tr>
+  <tr>
+    <th><%= model_class.human_attribute_name(:id) %></th>
+    <th><%= model_class.human_attribute_name(:trade_name) %></th>
+    <th><%= model_class.human_attribute_name(:cnpj) %></th>
+    <th><%= model_class.human_attribute_name(:email) %></th>
+    <th><%= model_class.human_attribute_name(:mobile_number) %></th>
+    <th><%= model_class.human_attribute_name(:phone_number) %></th>
+    <th><%= model_class.human_attribute_name(:fax) %></th>
+    <th><%= model_class.human_attribute_name(:social_name) %></th>
+    <th><%= model_class.human_attribute_name(:avatar) %></th>
+    <th><%= model_class.human_attribute_name(:created_at) %></th>
+    <th><%=t '.actions', :default => t("helpers.actions") %></th>
+  </tr>
   </thead>
-
   <tbody>
-    <% @real_state_agencies.each do |real_state_agency| %>
+  <% @real_state_agencies.each do |real_state_agency| %>
       <tr>
+        <td><%= link_to real_state_agency.id, real_state_agency_path(real_state_agency) %></td>
         <td><%= real_state_agency.trade_name %></td>
         <td><%= real_state_agency.cnpj %></td>
         <td><%= real_state_agency.email %></td>
@@ -27,15 +29,22 @@
         <td><%= real_state_agency.phone_number %></td>
         <td><%= real_state_agency.fax %></td>
         <td><%= real_state_agency.social_name %></td>
-        <td><%= real_state_agency.avatar_url %></td>
-        <td><%= link_to 'Show', real_state_agency %></td>
-        <td><%= link_to 'Edit', edit_real_state_agency_path(real_state_agency) %></td>
-        <td><%= link_to 'Destroy', real_state_agency, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= real_state_agency.avatar %></td>
+        <td><%=l real_state_agency.created_at %></td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_real_state_agency_path(real_state_agency), :class => 'btn btn-default btn-xs' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      real_state_agency_path(real_state_agency),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-xs btn-danger' %>
+        </td>
       </tr>
-    <% end %>
+  <% end %>
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'New Real State Agency', new_real_state_agency_path %>
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_real_state_agency_path,
+            :class => 'btn btn-primary' %>

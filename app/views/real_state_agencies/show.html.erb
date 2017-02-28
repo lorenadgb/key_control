@@ -1,39 +1,33 @@
-<p id="notice"><%= notice %></p>
+<%- model_class = RealStateAgency -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
+</div>
 
-<p>
-  <strong>Trade name:</strong>
-  <%= @real_state_agency.trade_name %>
-</p>
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:trade_name) %>:</strong></dt>
+  <dd><%= @real_state_agency.trade_name %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:cnpj) %>:</strong></dt>
+  <dd><%= @real_state_agency.cnpj %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:email) %>:</strong></dt>
+  <dd><%= @real_state_agency.email %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:mobile_number) %>:</strong></dt>
+  <dd><%= @real_state_agency.mobile_number %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:phone_number) %>:</strong></dt>
+  <dd><%= @real_state_agency.phone_number %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:fax) %>:</strong></dt>
+  <dd><%= @real_state_agency.fax %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:social_name) %>:</strong></dt>
+  <dd><%= @real_state_agency.social_name %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:avatar) %>:</strong></dt>
+  <dd><%= @real_state_agency.avatar %></dd>
+</dl>
 
-<p>
-  <strong>Cnpj:</strong>
-  <%= @real_state_agency.cnpj %>
-</p>
-
-<p>
-  <strong>Email:</strong>
-  <%= @real_state_agency.email %>
-</p>
-
-<p>
-  <strong>Mobile number:</strong>
-  <%= @real_state_agency.mobile_number %>
-</p>
-
-<p>
-  <strong>Phone number:</strong>
-  <%= @real_state_agency.phone_number %>
-</p>
-
-<p>
-  <strong>Fax:</strong>
-  <%= @real_state_agency.fax %>
-</p>
-
-<p>
-  <strong>Social name:</strong>
-  <%= @real_state_agency.social_name %>
-</p>
-
-<%= link_to 'Edit', edit_real_state_agency_path(@real_state_agency) %> |
-<%= link_to 'Back', real_state_agencies_path %>
+<%= link_to t('.back', :default => t("helpers.links.back")),
+            real_state_agencies_path, :class => 'btn btn-default'  %>
+<%= link_to t('.edit', :default => t("helpers.links.edit")),
+            edit_real_state_agency_path(@real_state_agency), :class => 'btn btn-default' %>
+<%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+            real_state_agency_path(@real_state_agency),
+            :method => 'delete',
+            :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+            :class => 'btn btn-danger' %>

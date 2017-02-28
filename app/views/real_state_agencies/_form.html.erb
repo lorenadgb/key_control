@@ -1,4 +1,4 @@
-<%= simple_form_for @real_state_agency do |f| %>
+<%= simple_form_for @real_state_agency, :html => { :class => 'form-horizontal' } do |f| %>
   <%= f.file_field :avatar %>
   <%= f.input :trade_name %>
   <%= f.input :social_name %>
@@ -13,7 +13,7 @@
     <%= render 'addresses/form', f: b %>
   <% end %>
 
-  <%= f.input :active, as: :radio_buttons %>
-
-  <%= f.button :submit %>
+    <%= f.button :submit, :class => 'btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                real_state_agencies_path, :class => 'btn btn-default' %>
 <% end %>
