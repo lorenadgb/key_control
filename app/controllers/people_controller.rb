@@ -1,19 +1,13 @@
-class PeopleController < ApplicationController
+class PeopleController < CrudController
   before_action :set_person, only: [:show, :edit, :update, :destroy]
 
   def index
     @people = Person.all
   end
 
-  def show
-  end
-
   def new
     @person = Person.new
     @person.build_address
-  end
-
-  def edit
   end
 
   def create

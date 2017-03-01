@@ -1,20 +1,14 @@
-class BuildingsController < ApplicationController
+class BuildingsController < CrudController
   before_action :set_building, only: [:show, :edit, :update, :destroy]
 
   def index
     @buildings = Building.all
   end
 
-  def show
-  end
-
   def new
     @building = Building.new
     @building.build_address
     @building.keys.build
-  end
-
-  def edit
   end
 
   def create

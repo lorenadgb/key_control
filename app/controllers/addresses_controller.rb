@@ -1,18 +1,12 @@
-class AddressesController < ApplicationController
+class AddressesController < CrudController
   before_action :set_address, only: [:show, :edit, :update, :destroy]
 
   def index
     @addresses = Address.all
   end
 
-  def show
-  end
-
   def new
     @address = Address.new
-  end
-
-  def edit
   end
 
   def create

@@ -1,19 +1,13 @@
-class RealStateAgenciesController < ApplicationController
+class RealStateAgenciesController < CrudController
   before_action :set_real_state_agency, only: [:show, :edit, :update, :destroy]
 
   def index
     @real_state_agencies = RealStateAgency.all
   end
 
-  def show
-  end
-
   def new
     @real_state_agency = RealStateAgency.new
     @real_state_agency.build_address
-  end
-
-  def edit
   end
 
   def create

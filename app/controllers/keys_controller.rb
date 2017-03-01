@@ -1,18 +1,12 @@
-class KeysController < ApplicationController
+class KeysController < CrudController
   before_action :set_key, only: [:show, :edit, :update, :destroy]
 
   def index
     @keys = Key.all
   end
 
-  def show
-  end
-
   def new
     @key = Key.new
-  end
-
-  def edit
   end
 
   def create
