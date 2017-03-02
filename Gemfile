@@ -16,6 +16,7 @@ gem 'enumerate_it'
 gem 'carrierwave'
 gem 'simple_form'
 gem "twitter-bootstrap-rails"
+gem 'devise'
 
 gem 'jquery-rails'
 gem 'turbolinks', '~> 5'
