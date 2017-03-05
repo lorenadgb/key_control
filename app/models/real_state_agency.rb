@@ -3,6 +3,8 @@ class RealStateAgency < ApplicationRecord
 
   before_create :only_one_row
 
+  validates :trade_name, :cnpj, :avatar, presence: true
+
   mount_uploader :avatar, AvatarUploader
 
   has_one :address, as: :addressable, dependent: :destroy
