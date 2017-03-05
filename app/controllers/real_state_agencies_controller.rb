@@ -1,5 +1,5 @@
 class RealStateAgenciesController < CrudController
-  before_action :set_real_state_agency, only: [:show, :edit, :update, :destroy]
+  before_action :set_real_state_agency, only: [:show, :edit, :update]
 
   def index
     @real_state_agencies = RealStateAgency.all
@@ -33,14 +33,6 @@ class RealStateAgenciesController < CrudController
         format.html { render :edit }
         format.json { render json: @real_state_agency.errors, status: :unprocessable_entity }
       end
-    end
-  end
-
-  def destroy
-    @real_state_agency.destroy
-    respond_to do |format|
-      format.html { redirect_to real_state_agencies_url, notice: 'Real state agency was successfully destroyed.' }
-      format.json { head :no_content }
     end
   end
 
