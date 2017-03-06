@@ -1,1 +1,27 @@
+<div>
 
+  <ul class="nav nav-tabs" role="tablist">
+    <li role="presentation" class="active"><a href="#keys" aria-controls="keys" role="tab" data-toggle="tab">Chaves</a></li>
+    <li role="presentation"><a href="#buildings" aria-controls="buildings" role="tab" data-toggle="tab">Imóveis</a></li>
+    <li role="presentation"><a href="#owners" aria-controls="messages" role="tab" data-toggle="tab">Proprietários</a></li>
+    <li role="presentation"><a href="#visitors" aria-controls="settings" role="tab" data-toggle="tab">Visitantes</a></li>
+  </ul>
+
+  <div class="tab-content">
+    <div role="tabpanel" class="tab-pane active" id="keys">
+      <%= render 'keys/index' %>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="buildings">
+      <%= render 'buildings/index' %>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="owners">
+      <% @people = @people.owners %>
+      <%= render 'people/index' %>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="visitors">
+      <% @people = @people.visitors %>
+      <%= render 'people/index' %>
+    </div>
+  </div>
+
+</div>
