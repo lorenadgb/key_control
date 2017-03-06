@@ -2,8 +2,8 @@ pt-BR:
   activerecord:
     models:
       person:
-        one: Chave
-        other: Chaves
+        one: Pessoa
+        other: Pessoas
 
     attributes:
       person:
