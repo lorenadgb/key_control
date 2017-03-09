@@ -2,7 +2,7 @@ class PeopleController < CrudController
   before_action :set_person, only: [:show, :edit, :update, :destroy]
 
   def index
-    @people = Person.all
+    @people = Person.paginate(:page => params[:page])
   end
 
   def new

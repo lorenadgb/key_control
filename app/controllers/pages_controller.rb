@@ -1,8 +1,8 @@
 class PagesController < CrudController
 
   def index
-    @buildings = Building.all
-    @keys      = Key.all
-    @people    = Person.all
+    @buildings = Building.paginate(page: params[:page])
+    @keys      = Key.paginate(page: params[:page])
+    @people    = Person.paginate(page: params[:page])
   end
 end

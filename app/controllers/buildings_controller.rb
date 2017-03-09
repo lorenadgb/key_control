@@ -2,7 +2,7 @@ class BuildingsController < CrudController
   before_action :set_building, only: [:show, :edit, :update, :destroy]
 
   def index
-    @buildings = Building.all
+    @buildings = Building.paginate(:page => params[:page])
   end
 
   def new

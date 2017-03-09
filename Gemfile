@@ -17,6 +17,7 @@ gem 'carrierwave'
 gem 'simple_form'
 gem "twitter-bootstrap-rails"
 gem 'devise'
+gem 'will_paginate'
 
 gem 'jquery-rails'
 gem 'turbolinks', '~> 5'
@@ -32,6 +33,7 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'better_errors'
+  gem 'binding_of_caller'
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]

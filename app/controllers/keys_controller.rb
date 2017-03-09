@@ -2,7 +2,7 @@ class KeysController < CrudController
   before_action :set_key, only: [:show, :edit, :update, :destroy]
 
   def index
-    @keys = Key.all
+    @keys = Key.paginate(:page => params[:page])
   end
 
   def new

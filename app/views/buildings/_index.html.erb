@@ -34,6 +34,9 @@
   </tbody>
 </table>
 
+<%= will_paginate @buildings, params: {active_tab: 'buildings'} %>
+</br>
+
 <%= link_to t('.new', :default => t("helpers.links.new")),
             new_building_path,
             :class => 'btn btn-primary' %>
