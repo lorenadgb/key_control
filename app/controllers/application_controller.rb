@@ -5,10 +5,14 @@ class ApplicationController < ActionController::Base
     redirect_to :new_real_state_agency unless real_state_agency?
   end
 
+  def real_state_agency
+    RealStateAgency.last
+  end
+
   private
 
   def real_state_agency?
-    RealStateAgency.last
+    real_state_agency
   end
 
 end

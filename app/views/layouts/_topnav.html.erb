@@ -1,0 +1,36 @@
+<% if current_user %>
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/">Controle de Chaves</a>
+      </div>
+      <div id="navbar" class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+          <li><%= link_to 'Chaves', new_key_path %></li>
+          <li><%= link_to 'Propriedades', new_building_path %></li>
+          <li><%= link_to 'Proprietários', new_person_path %></li>
+          <li><%= link_to 'Visitantes', new_person_path %></li>
+          <li><a href="#visits">Visitas</a></li>
+          <li class="dropdown">
+        </ul>
+
+        <ul class="nav navbar-nav navbar-right">
+          <li class="dropdown-user">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Usuário <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="#"><%= link_to '<i class="fa fa-gear fa-fw"></i> Configurações'.html_safe, edit_real_state_agency_path(RealStateAgency.last) %></a></li>
+              <li role="separator" class="divider"></li>
+              <li><a href="#"><%= link_to '<i class="fa fa-sign-out fa-fw"></i> Logout'.html_safe, destroy_user_session_path, method: :delete %></a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+<% end %>
