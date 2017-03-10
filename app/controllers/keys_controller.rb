@@ -5,10 +5,6 @@ class KeysController < CrudController
     @keys = Key.paginate(:page => params[:page])
   end
 
-  def new
-    @key = Key.new
-  end
-
   def create
     @key = Key.new(key_params)
 
