@@ -1,0 +1,15 @@
+pt-BR:
+  activerecord:
+    models:
+      visit:
+        one: Visita
+        other: Visitas
+
+    attributes:
+      visit:
+        building: Propriedade
+        date: Data
+        key: Chave
+        observation: Observação
+        owner: Proprietário
+        visitor: Visitante

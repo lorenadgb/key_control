@@ -4,5 +4,6 @@ class PagesController < CrudController
     @buildings = Building.paginate(page: params[:page])
     @keys      = Key.paginate(page: params[:page])
     @people    = Person.paginate(page: params[:page])
+    @visits    = Visit.paginate(page: params[:page])
   end
 end

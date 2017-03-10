@@ -7,4 +7,5 @@ Rails.application.routes.draw do
   resources :addresses
   resources :people
   resources :buildings
+  resources :visits
 end
