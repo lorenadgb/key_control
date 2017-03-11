@@ -2,4 +2,5 @@ pt-BR:
   enumerations:
     personable_type:
       owner: Proprietário
+      realtor: Corretor
       visitor: Visitante

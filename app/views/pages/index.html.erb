@@ -5,6 +5,7 @@
     <li role="presentation"><a href="#buildings" aria-controls="buildings" role="tab" data-toggle="tab">Imóveis</a></li>
     <li role="presentation"><a href="#owners" aria-controls="messages" role="tab" data-toggle="tab">Proprietários</a></li>
     <li role="presentation"><a href="#visitors" aria-controls="settings" role="tab" data-toggle="tab">Visitantes</a></li>
+    <li role="presentation"><a href="#realtors" aria-controls="settings" role="tab" data-toggle="tab">Corretores</a></li>
     <li role="presentation"><a href="#visits" aria-controls="settings" role="tab" data-toggle="tab">Visitas</a></li>
   </ul>
 
@@ -21,6 +22,10 @@
     </div>
     <div role="tabpanel" class="tab-pane" id="visitors">
       <% @people = @people.visitors %>
+      <%= render 'people/index' %>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="realtors">
+      <% @people = @people.realtors %>
       <%= render 'people/index' %>
     </div>
     <div role="tabpanel" class="tab-pane" id="visits">
