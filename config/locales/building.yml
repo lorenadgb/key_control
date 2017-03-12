@@ -9,6 +9,7 @@ pt-BR:
       building:
         active: Ativo
         building_type: Tipo de imóvel
+        code: Código
         created_at: Criado em
         observation: Observação
         person: Proprietário

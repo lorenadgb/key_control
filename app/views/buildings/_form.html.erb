@@ -1,4 +1,5 @@
 <%= simple_form_for @building, :html => { :class => 'form-horizontal' } do |f| %>
+  <%= f.input :code %>
   <%= f.association :person %>
 
   <%= f.input :building_type, collection: BuildingType %>
