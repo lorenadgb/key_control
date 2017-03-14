@@ -1,12 +1,39 @@
 <%= simple_form_for @visit, :html => { :class => 'form-horizontal' } do |f| %>
   <%= f.error_notification %>
 
-  <%= f.input :date %>
-  <%= f.association :building, label_method: :id, value_method: :id %>
-  <%= f.association :key, label_method: :code, value_method: :id %>
-  <%= f.association :owner,   collection: Person.owners %>
-  <%= f.association :visitor, collection: Person.visitors %>
-  <%= f.input :observation %>
+  <div class="row">
+    <div class="col-xs-5">
+      <%= f.input :date %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-5">
+      <%= f.association :visitor, collection: Person.visitors %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-5">
+      <%= f.association :owner,   collection: Person.owners %>
+    </div>
+
+    <div class="col-xs-5 col-sm-offset-1">
+      <%= f.association :building, label_method: :code, value_method: :code %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-5">
+      <%= f.association :key, label_method: :code, value_method: :id %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-12">
+      <%= f.input :observation %>
+    </div>
+  </div>
 
   <%= f.button :submit %>
 
