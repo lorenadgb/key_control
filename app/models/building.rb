@@ -3,7 +3,7 @@ class Building < ApplicationRecord
 
   belongs_to :person
 
-  validates :building_type, :person, presence: true
+  validates :building_type, :person, :code, presence: true
 
   has_enumeration_for :building_type
 
