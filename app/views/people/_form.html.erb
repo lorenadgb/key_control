@@ -1,15 +1,48 @@
 <%= simple_form_for @person, :html => { :class => 'form-horizontal' } do |f| %>
-  <%= f.input :name %>
-  <%= f.input :mother %>
-  <%= f.input :father %>
-  <%= f.input :cpf %>
-  <%= f.input :nationality %>
+
+  <div class="row">
+    <div class="col-xs-5">
+      <%= f.input :name %>
+    </div>
+
+    <div class="col-xs-3 col-sm-offset-1">
+      <%= f.input :cpf %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-5">
+      <%= f.input :mother %>
+    </div>
+
+    <div class="col-xs-5 col-sm-offset-1">
+      <%= f.input :father %>
+    </div>
+  </div>
+
   <%= f.input :gender, :as => :radio_buttons, :collection => Gender %>
   <%= f.input :birthdate %>
-  <%= f.input :email %>
-  <%= f.input :phone_number %>
-  <%= f.input :mobile_number %>
-  <%= f.input :fax %>
+
+  <div class="row">
+    <div class="col-xs-3">
+      <%= f.input :phone_number %>
+    </div>
+
+    <div class="col-xs-3 col-sm-offset-1">
+      <%= f.input :mobile_number %>
+    </div>
+
+    <div class="col-xs-3 col-sm-offset-1">
+      <%= f.input :fax %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-4">
+      <%= f.input :email %>
+    </div>
+  </div>
+
   <%= f.input :personable_type, collection: PersonableType %>
 
   <%= f.simple_fields_for :address, @person.address do |b| %>
