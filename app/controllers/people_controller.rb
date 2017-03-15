@@ -7,6 +7,7 @@ class PeopleController < CrudController
 
   def new
     @person = Person.new
+    @person.personable_type = params[:personable_type] unless params[:personable_type].nil?
     @person.build_address
   end
 

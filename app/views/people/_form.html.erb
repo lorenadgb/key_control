@@ -1,5 +1,7 @@
 <%= simple_form_for @person, :html => { :class => 'form-horizontal' } do |f| %>
 
+  <%= f.input :personable_type, collection: PersonableType, readonly: true  %>
+
   <div class="row">
     <div class="col-xs-5">
       <%= f.input :name %>
@@ -42,8 +44,6 @@
       <%= f.input :email %>
     </div>
   </div>
-
-  <%= f.input :personable_type, collection: PersonableType %>
 
   <%= f.simple_fields_for :address, @person.address do |b| %>
     <%= render 'addresses/form', f: b %>

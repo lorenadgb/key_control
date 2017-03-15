@@ -54,5 +54,5 @@
 </br>
 
 <%= link_to t('.new', :default => t("helpers.links.new")),
-            new_person_path,
+            new_person_path(personable_type: @personable_type),
             :class => 'btn btn-primary' %>

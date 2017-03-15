@@ -18,14 +18,17 @@
     </div>
     <div role="tabpanel" class="tab-pane" id="owners">
       <% @people = @people.owners %>
+      <% @personable_type = PersonableType::OWNER %>
       <%= render 'people/index' %>
     </div>
     <div role="tabpanel" class="tab-pane" id="visitors">
       <% @people = @people.visitors %>
+      <% @personable_type = PersonableType::VISITOR %>
       <%= render 'people/index' %>
     </div>
     <div role="tabpanel" class="tab-pane" id="realtors">
       <% @people = @people.realtors %>
+      <% @personable_type = PersonableType::REALTOR %>
       <%= render 'people/index' %>
     </div>
     <div role="tabpanel" class="tab-pane" id="visits">
