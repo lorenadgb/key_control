@@ -20,7 +20,7 @@
         <td><%=l key.created_at %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                      edit_key_path(key), :class => 'btn btn-default btn-xs' %>
+                      edit_building_path(key.building), :class => 'btn btn-default btn-xs' %>
           <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
                       key_path(key),
                       :method => :delete,
