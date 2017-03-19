@@ -18,6 +18,7 @@ gem 'simple_form'
 gem "twitter-bootstrap-rails"
 gem 'devise'
 gem 'will_paginate'
+gem 'cocoon'
 
 gem 'jquery-rails'
 gem 'turbolinks', '~> 5'
