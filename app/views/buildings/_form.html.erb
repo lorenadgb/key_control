@@ -33,6 +33,11 @@
     <%= render 'keys/form', f: b %>
   <% end %>
 
+  <div class='links'>
+    <%= link_to_add_association 'Adicionar chave', f, :keys, class: 'btn btn-default' %>
+  </div>
+  </br>
+
   <%= f.button :submit, :class => 'btn-primary' %>
   <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
                 buildings_path, :class => 'btn btn-default' %>
