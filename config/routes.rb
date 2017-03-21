@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root 'pages#index'
 
   resources :real_state_agencies, except: :destroy
-  resources :keys, except: :new
+  resources :keys, except: [:new, :show, :edit]
   resources :addresses
   resources :people
   resources :buildings
