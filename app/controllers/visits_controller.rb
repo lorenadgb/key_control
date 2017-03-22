@@ -56,6 +56,6 @@ class VisitsController < CrudController
 
     def visit_params
       params.require(:visit).permit(:key, :key_id, :building, :building_id, :owner, :owner_id, :visitor, :visitor_id,
-                                    :start_at, :finished_at, :observation)
+                                    :realtor, :realtor_id, :start_at, :finished_at, :observation)
     end
 end

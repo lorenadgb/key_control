@@ -4,8 +4,9 @@ class Visit < ApplicationRecord
   belongs_to :building
   belongs_to :owner,   class_name: 'Person'
   belongs_to :visitor, class_name: 'Person'
+  belongs_to :realtor, class_name: 'Person'
 
-  validates :building_id, :key_id, :owner, :visitor, :start_at, presence: true
+  validates :building_id, :key_id, :owner, :visitor, :realtor, :start_at, presence: true
 
   before_create do
     self.set_status_to_borrowed
