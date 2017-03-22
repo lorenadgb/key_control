@@ -39,6 +39,17 @@ class KeysController < CrudController
     end
   end
 
+  def set_status_to_available
+    key_id = params[:key_id]
+    visit = Visit.by_key_id(key_id)
+
+    Visit.transaction do
+      visit.set_status_to_available
+      visit.update_finished_at
+      redirect_to root_path
+    end
+  end
+
   private
     def set_key
       @key = Key.find(params[:id])

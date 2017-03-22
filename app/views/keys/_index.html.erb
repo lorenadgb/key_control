@@ -1,21 +1,27 @@
+<br>
 <% @keys.each_slice(16) do |keys| %>
-    <div class="row">
-      <% keys.each do |key| %>
+  <div class="row">
+    <% keys.each do |key| %>
 
-        <div class="col-md-1">
-            <div>
-              <p class="text-center"><%= key.code %></p>
-            </div>
-            <div class="clearfix">
-              <% if key.status == KeyStatus::AVAILABLE %>
-                <i class="fa fa-key fa-3x" aria-hidden="true" style="color: green"></i>
-              <% else %>
+      <div class="col-md-1">
+          <div class="clearfix">
+            <% if key.status == KeyStatus::AVAILABLE %>
+              <div>
+                <p class="text-center"><%= truncate(key.code, length: 9) %></p>
+              </div>
+              <i class="fa fa-key fa-3x" aria-hidden="true" style="color: green"></i>
+            <% else %>
+              <%= link_to set_status_to_available_path(key_id: key.id), data: { confirm: t('.confirm', default: t("helpers.links.confirm", default: 'Are you sure?')) }, class: "btn btn-default" do %>
+                <div>
+                  <p class="text-center"><%= truncate(key.code, length: 9) %></p>
+                </div>
                 <i class="fa fa-key fa-3x" aria-hidden="true" style="color: darkblue"></i>
               <% end %>
-            </div>
-            <p class="text-center"><%= link_to key.building.code, edit_building_path(key.building) %></p>
+            <% end %>
           </div>
+          <p class="text-center"><%= link_to truncate(key.building.code, length: 9), edit_building_path(key.building) %></p>
+        </div>
 
-      <% end %>
-    </div>
+    <% end %>
+  </div>
 <% end %>

@@ -8,4 +8,6 @@ Rails.application.routes.draw do
   resources :people
   resources :buildings
   resources :visits
+
+  get 'set_status_to_available' => 'keys#set_status_to_available', via: :get
 end

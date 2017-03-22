@@ -7,7 +7,7 @@
     </div>
 
     <div class="col-xs-5">
-      <%= f.input :finished_at if @visit.persisted? %>
+      <%= f.input :finished_at, readonly: true if @visit.persisted? && !@visit.finished_at.nil? %>
     </div>
   </div>
 
