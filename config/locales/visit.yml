@@ -8,7 +8,8 @@ pt-BR:
     attributes:
       visit:
         building: Propriedade
-        date: Data
+        finished_at: Fim
+        start_at: Início
         key: Chave
         observation: Observação
         owner: Proprietário

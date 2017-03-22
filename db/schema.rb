@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170321002940) do
+ActiveRecord::Schema.define(version: 20170322002841) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -100,7 +100,7 @@ ActiveRecord::Schema.define(version: 20170321002940) do
   end
 
   create_table "visits", force: :cascade do |t|
-    t.datetime "date"
+    t.datetime "start_at"
     t.string   "observation"
     t.integer  "owner_id"
     t.integer  "visitor_id"
@@ -108,6 +108,7 @@ ActiveRecord::Schema.define(version: 20170321002940) do
     t.integer  "key_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.date     "finished_at"
     t.index ["building_id"], name: "index_visits_on_building_id", using: :btree
     t.index ["key_id"], name: "index_visits_on_key_id", using: :btree
     t.index ["owner_id"], name: "index_visits_on_owner_id", using: :btree

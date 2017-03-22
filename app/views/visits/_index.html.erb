@@ -3,7 +3,7 @@
   <thead>
   <tr>
     <th><%= model_class.human_attribute_name(:id) %></th>
-    <th><%= model_class.human_attribute_name(:date) %></th>
+    <th><%= model_class.human_attribute_name(:start_at) %></th>
     <th><%= model_class.human_attribute_name(:owner) %></th>
     <th><%= model_class.human_attribute_name(:visitor) %></th>
     <th><%= model_class.human_attribute_name(:key) %></th>
@@ -15,7 +15,7 @@
   <% @visits.each do |visit| %>
       <tr>
         <td><%= link_to visit.id, visit_path(visit) %></td>
-        <td><%= visit.date %></td>
+        <td><%= visit.start_at %></td>
         <td><%= visit.owner.name %></td>
         <td><%= visit.visitor.name %></td>
         <td><%= visit.key.code %></td>

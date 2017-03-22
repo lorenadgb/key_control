@@ -5,6 +5,6 @@ class Visit < ApplicationRecord
   belongs_to :owner,   class_name: 'Person'
   belongs_to :visitor, class_name: 'Person'
 
-  validates :building, :key_id, :owner, :visitor, :date, presence: true
+  validates :building_id, :key_id, :owner, :visitor, :start_at, presence: true
 
 end
