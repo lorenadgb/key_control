@@ -19,7 +19,7 @@
               <% end %>
             <% end %>
           </div>
-          <p class="text-center"><%= link_to truncate(key.building.code, length: 9), edit_building_path(key.building) %></p>
+          <p class="text-center"><%= link_to truncate(key.building.code, length: 9), building_path(key.building) %></p>
         </div>
 
     <% end %>

@@ -4,16 +4,20 @@
 </div>
 
 <dl class="dl-horizontal">
-  <dt><strong><%= model_class.human_attribute_name(:start_at) %>:</strong></dt>
-  <dd><%= @visit.start_at %></dd>
   <dt><strong><%= model_class.human_attribute_name(:owner) %>:</strong></dt>
   <dd><%= @visit.owner.name %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:realtor) %>:</strong></dt>
+  <dd><%= @visit.realtor.name %></dd>
   <dt><strong><%= model_class.human_attribute_name(:visitor) %>:</strong></dt>
   <dd><%= @visit.visitor.name %></dd>
   <dt><strong><%= model_class.human_attribute_name(:key) %>:</strong></dt>
   <dd><%= @visit.key.code %></dd>
   <dt><strong><%= model_class.human_attribute_name(:observation) %>:</strong></dt>
   <dd><%= @visit.observation %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:start_at) %>:</strong></dt>
+  <dd><%= I18n.l(@visit.start_at, format: :default) %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:finished_at) %>:</strong></dt>
+  <dd><%= I18n.l(@visit.finished_at, format: :default) %></dd>
 </dl>
 
 <%= link_to t('.back', :default => t("helpers.links.back")),

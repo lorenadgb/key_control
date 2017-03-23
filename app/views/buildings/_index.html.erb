@@ -5,10 +5,8 @@
     <th><%= model_class.human_attribute_name(:id) %></th>
     <th><%= model_class.human_attribute_name(:code) %></th>
     <th><%= model_class.human_attribute_name(:building_type) %></th>
-    <th><%= model_class.human_attribute_name(:observation) %></th>
     <th><%= model_class.human_attribute_name(:active) %></th>
     <th><%= model_class.human_attribute_name(:person) %></th>
-    <th><%= model_class.human_attribute_name(:created_at) %></th>
     <th><%=t '.actions', :default => t("helpers.actions") %></th>
   </tr>
   </thead>
@@ -17,11 +15,9 @@
       <tr>
         <td><%= link_to building.id, building_path(building) %></td>
         <td><%= building.code %></td>
-        <td><%= building.building_type %></td>
-        <td><%= building.observation %></td>
-        <td><%= building.active %></td>
+        <td><%= building.building_type_humanize %></td>
+        <td><%= t building.active.class %></td>
         <td><%= building.person.name %></td>
-        <td><%=l building.created_at %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_building_path(building), :class => 'btn btn-default btn-xs' %>

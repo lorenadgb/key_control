@@ -4,18 +4,11 @@
   <tr>
     <th><%= model_class.human_attribute_name(:id) %></th>
     <th><%= model_class.human_attribute_name(:name) %></th>
-    <th><%= model_class.human_attribute_name(:mother) %></th>
-    <th><%= model_class.human_attribute_name(:father) %></th>
     <th><%= model_class.human_attribute_name(:cpf) %></th>
-    <th><%= model_class.human_attribute_name(:nationality) %></th>
-    <th><%= model_class.human_attribute_name(:gender) %></th>
-    <th><%= model_class.human_attribute_name(:birthdate) %></th>
     <th><%= model_class.human_attribute_name(:email) %></th>
     <th><%= model_class.human_attribute_name(:phone_number) %></th>
     <th><%= model_class.human_attribute_name(:mobile_number) %></th>
     <th><%= model_class.human_attribute_name(:fax) %></th>
-    <th><%= model_class.human_attribute_name(:personable_type) %></th>
-    <th><%= model_class.human_attribute_name(:created_at) %></th>
     <th><%=t '.actions', :default => t("helpers.actions") %></th>
   </tr>
   </thead>
@@ -24,18 +17,11 @@
       <tr>
         <td><%= link_to person.id, person_path(person) %></td>
         <td><%= person.name %></td>
-        <td><%= person.mother %></td>
-        <td><%= person.father %></td>
         <td><%= person.cpf %></td>
-        <td><%= person.nationality %></td>
-        <td><%= person.gender %></td>
-        <td><%= person.birthdate %></td>
         <td><%= person.email %></td>
         <td><%= person.phone_number %></td>
         <td><%= person.mobile_number %></td>
         <td><%= person.fax %></td>
-        <td><%= person.personable_type %></td>
-        <td><%=l person.created_at %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_person_path(person), :class => 'btn btn-default btn-xs' %>

@@ -1,0 +1,5 @@
+pt-BR:
+  enumerations:
+    street_type:
+      avenue: Avenida
+      street: Rua

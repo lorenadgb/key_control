@@ -3,12 +3,12 @@
   <thead>
   <tr>
     <th><%= model_class.human_attribute_name(:id) %></th>
-    <th><%= model_class.human_attribute_name(:start_at) %></th>
-    <th><%= model_class.human_attribute_name(:owner) %></th>
     <th><%= model_class.human_attribute_name(:realtor) %></th>
     <th><%= model_class.human_attribute_name(:visitor) %></th>
+    <th><%= model_class.human_attribute_name(:building) %></th>
     <th><%= model_class.human_attribute_name(:key) %></th>
-    <th><%= model_class.human_attribute_name(:observation) %></th>
+    <th><%= model_class.human_attribute_name(:start_at) %></th>
+    <th><%= model_class.human_attribute_name(:finished_at) %></th>
     <th><%=t '.actions', :default => t("helpers.actions") %></th>
   </tr>
   </thead>
@@ -16,12 +16,12 @@
   <% @visits.each do |visit| %>
       <tr>
         <td><%= link_to visit.id, visit_path(visit) %></td>
-        <td><%= visit.start_at %></td>
-        <td><%= visit.owner.name %></td>
         <td><%= visit.realtor.name %></td>
         <td><%= visit.visitor.name %></td>
+        <td><%= visit.building.code %></td>
         <td><%= visit.key.code %></td>
-        <td><%= visit.observation %></td>
+        <td><%= I18n.l(visit.start_at, format: :default) %></td>
+        <td><%= I18n.l(visit.finished_at, format: :default) %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_visit_path(visit), :class => 'btn btn-default btn-xs' %>

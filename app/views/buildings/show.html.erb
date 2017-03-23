@@ -1,17 +1,54 @@
 <%- model_class = Building -%>
 <div class="page-header">
-  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
+  <h1><%=t '.title', :default => model_class.model_name.human.titleize %>: <%= @building.code %></h1>
 </div>
 
 <dl class="dl-horizontal">
   <dt><strong><%= model_class.human_attribute_name(:building_type) %>:</strong></dt>
-  <dd><%= @building.building_type %></dd>
+  <dd><%= @building.building_type_humanize %></dd>
   <dt><strong><%= model_class.human_attribute_name(:observation) %>:</strong></dt>
   <dd><%= @building.observation %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:person) %>:</strong></dt>
+  <dd><%= @building.person.name %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:created_at) %>:</strong></dt>
+  <dd><%= I18n.l(@building.created_at, format: :default) %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:updated_at) %>:</strong></dt>
+  <dd><%= I18n.l(@building.updated_at, format: :default) %></dd>
   <dt><strong><%= model_class.human_attribute_name(:active) %>:</strong></dt>
-  <dd><%= @building.active %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:person_id) %>:</strong></dt>
-  <dd><%= @building.person_id %></dd>
+  <dd><%= t @building.active.class %></dd>
+</dl>
+
+<dl class="dl-horizontal">
+  <div class="page-header">
+    <h1>
+      <small><%= Address.model_name.human %></small>
+    </h1>
+  </div>
+  <dt><strong><%= Address.human_attribute_name(:street_type) %>:</strong></dt>
+  <dd><%= @building.address.street_type_humanize %></dd>
+  <dt><strong><%= Address.human_attribute_name(:name) %>:</strong></dt>
+  <dd><%= @building.address.name %></dd>
+  <dt><strong><%= Address.human_attribute_name(:number) %>:</strong></dt>
+  <dd><%= @building.address.number %></dd>
+  <dt><strong><%= Address.human_attribute_name(:complement) %>:</strong></dt>
+  <dd><%= @building.address.complement %></dd>
+  <dt><strong><%= Address.human_attribute_name(:neighborhood) %>:</strong></dt>
+  <dd><%= @building.address.neighborhood %></dd>
+  <dt><strong><%= Address.human_attribute_name(:city) %>:</strong></dt>
+  <dd><%= @building.address.city %></dd>
+</dl>
+
+<dl class="dl-horizontal">
+<div class="page-header">
+  <h1>
+    <small><%= Key.model_name.human.pluralize %></small>
+  </h1>
+</div>
+
+<% @building.keys.each do |key| %>
+  <dt><strong><%= Key.human_attribute_name(:code) %>:</strong></dt>
+  <dd><%= key.code %></dd>
+<% end %>
 </dl>
 
 <%= link_to t('.back', :default => t("helpers.links.back")),

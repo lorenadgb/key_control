@@ -7,7 +7,7 @@ pt-BR:
 
     attributes:
       visit:
-        building: Propriedade
+        building: Imóvel
         finished_at: Fim
         start_at: Início
         key: Chave
