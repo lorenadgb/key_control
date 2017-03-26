@@ -10,7 +10,7 @@ class Building < ApplicationRecord
   has_one :address, as: :addressable, dependent: :destroy
   accepts_nested_attributes_for :address
 
-  has_many :keys
+  has_many :keys, dependent: :destroy
   accepts_nested_attributes_for :keys, allow_destroy:  true
 
   has_many :visits, dependent: :destroy
