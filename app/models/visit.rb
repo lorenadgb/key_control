@@ -12,6 +12,8 @@ class Visit < ApplicationRecord
     self.set_status_to_borrowed
   end
 
+  before_destroy :check_if_the_key_is_available
+
   scope :finished_at_is_nil, -> { where(finished_at: nil) }
   scope :by_key_id, ->(key) { where( key_id: key ).finished_at_is_nil.last }
 
@@ -25,5 +27,11 @@ class Visit < ApplicationRecord
 
   def update_finished_at
     update_column :finished_at, Time.now
+  end
+
+  private
+
+  def check_if_the_key_is_available
+    throw :abort unless self.key.status == KeyStatus::AVAILABLE
   end
 end

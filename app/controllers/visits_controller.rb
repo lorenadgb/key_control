@@ -42,10 +42,14 @@ class VisitsController < CrudController
   end
 
   def destroy
-    @visit.destroy
-    respond_to do |format|
-      format.html { redirect_to visits_url, notice: 'Visit was successfully destroyed.' }
-      format.json { head :no_content }
+    if @visit.destroy
+      respond_to do |format|
+        format.html { redirect_to root_path, notice: 'Visit was successfully destroyed.' }
+        format.json { head :no_content }
+      end
+    else
+      flash[:notice] = 'Visit can not be destroyed.'
+      redirect_to root_path
     end
   end
 
