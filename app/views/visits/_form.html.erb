@@ -3,7 +3,7 @@
 
   <div class="row">
     <div class="col-xs-5">
-      <%= f.input :start_at %>
+      <%= f.input :start_at, readonly: @visit.persisted? %>
     </div>
 
     <div class="col-xs-5">
@@ -13,29 +13,29 @@
 
   <div class="row">
     <div class="col-xs-5">
-      <%= f.association :realtor, collection: Person.realtors %>
+      <%= f.association :realtor, collection: Person.realtors, readonly: @visit.persisted? %>
     </div>
   </div>
 
   <div class="row">
     <div class="col-xs-5">
-      <%= f.association :visitor, collection: Person.visitors %>
+      <%= f.association :visitor, collection: Person.visitors, readonly: @visit.persisted? %>
     </div>
   </div>
 
   <div class="row">
     <div class="col-xs-5">
-      <%= f.association :owner,   collection: Person.owners %>
+      <%= f.association :owner,   collection: Person.owners, readonly: @visit.persisted? %>
     </div>
 
     <div class="col-xs-5 col-sm-offset-1">
-      <%= f.association :building, label_method: :code, value_method: :id %>
+      <%= f.association :building, label_method: :code, value_method: :id, readonly: @visit.persisted? %>
     </div>
   </div>
 
   <div class="row">
     <div class="col-xs-5">
-      <%= f.association :key, label_method: :code, value_method: :id, collection: Key.availables %>
+      <%= f.association :key, label_method: :code, value_method: :id, collection: Key.availables, readonly: @visit.persisted? %>
     </div>
   </div>
 
