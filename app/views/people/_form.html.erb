@@ -23,7 +23,7 @@
   </div>
 
   <%= f.input :gender, :as => :radio_buttons, :collection => Gender %>
-  <%= f.input :birthdate %>
+  <%= f.input :birthdate, start_year: Date.today.year - 110, end_year: Date.today.year %>
 
   <div class="row">
     <div class="col-xs-3">
