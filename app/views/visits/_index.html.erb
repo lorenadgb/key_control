@@ -21,7 +21,7 @@
         <td><%= visit.building.code %></td>
         <td><%= visit.key.code %></td>
         <td><%= I18n.l(visit.start_at, format: :default) %></td>
-        <td><%= I18n.l(visit.finished_at, format: :default) %></td>
+        <td><%= ldate(visit.finished_at, format: :default) %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_visit_path(visit), :class => 'btn btn-default btn-xs' %>
