@@ -9,13 +9,13 @@
               <div>
                 <p class="text-center"><%= truncate(key.code, length: 9) %></p>
               </div>
-              <i class="fa fa-key fa-3x" aria-hidden="true" style="color: green"></i>
+              <i class="fa fa-key fa-3x fa-custom" aria-hidden="true" style="color: green"></i>
             <% else %>
               <%= link_to set_status_to_available_path(key_id: key.id), data: { confirm: t('.confirm', default: t("helpers.links.confirm", default: 'Are you sure?')) }, class: "btn btn-default" do %>
                 <div>
                   <p class="text-center"><%= truncate(key.code, length: 9) %></p>
                 </div>
-                <i class="fa fa-key fa-3x" aria-hidden="true" style="color: darkblue"></i>
+                <i class="fa fa-key fa-3x fa-custom" aria-hidden="true" style="color: darkblue"></i>
               <% end %>
             <% end %>
           </div>
