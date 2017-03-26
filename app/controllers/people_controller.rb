@@ -38,10 +38,14 @@ class PeopleController < CrudController
   end
 
   def destroy
-    @person.destroy
+    if @person.destroy
     respond_to do |format|
       format.html { redirect_to people_url, notice: 'Person was successfully destroyed.' }
       format.json { head :no_content }
+    end
+    else
+      flash[:notice] = 'Person can not be destroyed.'
+      redirect_to root_path
     end
   end
 

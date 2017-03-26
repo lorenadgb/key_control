@@ -11,8 +11,19 @@ class Person < ApplicationRecord
   has_one :address, as: :addressable, dependent: :destroy
   accepts_nested_attributes_for :address
 
+  has_many :visits
+
   scope :owners,   -> { where( personable_type: PersonableType::OWNER ) }
   scope :realtors, -> { where( personable_type: PersonableType::REALTOR ) }
   scope :visitors, -> { where( personable_type: PersonableType::VISITOR ) }
 
+  before_destroy :has_visits?
+
+  private
+
+  def has_visits?
+    if Visit.by_owner_id(self.id).any? || Visit.by_realtor_id(self.id).any? || Visit.by_visitor_id(self.id).any?
+      throw :abort
+    end
+  end
 end
