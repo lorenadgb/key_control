@@ -3,7 +3,7 @@ class RealStateAgency < ApplicationRecord
 
   before_create :only_one_row
 
-  validates :trade_name, :cnpj, :avatar, presence: true
+  validates :trade_name, :cnpj, :avatar, presence: true, on: :update
 
   mount_uploader :avatar, AvatarUploader
 
