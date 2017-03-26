@@ -35,7 +35,7 @@
 
   <div class="row">
     <div class="col-xs-5">
-      <%= f.association :key, label_method: :code, value_method: :id %>
+      <%= f.association :key, label_method: :code, value_method: :id, collection: Key.availables %>
     </div>
   </div>
 
