@@ -13,5 +13,7 @@ class Building < ApplicationRecord
   has_many :keys
   accepts_nested_attributes_for :keys, allow_destroy:  true
 
+  has_many :visits, dependent: :destroy
+
   scope :actives, -> { where { active.eq true } }
 end
