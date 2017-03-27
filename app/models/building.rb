@@ -5,6 +5,8 @@ class Building < ApplicationRecord
 
   validates :building_type, :person, :code, presence: true
 
+  validate :at_least_one_key
+
   has_enumeration_for :building_type
 
   has_one :address, as: :addressable, dependent: :destroy
@@ -15,5 +17,11 @@ class Building < ApplicationRecord
 
   has_many :visits, dependent: :destroy
 
-  scope :actives, -> { where { active.eq true } }
+  scope :actives, -> { where( active: true ) }
+
+  private
+
+  def at_least_one_key
+    false if self.keys.first.nil?
+  end
 end
