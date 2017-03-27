@@ -1,5 +1,5 @@
 class BuildingsController < CrudController
-  before_action :set_building, only: [:show, :edit, :update, :destroy]
+  before_action :set_building, only: [:show, :edit, :update]
 
   def index
     @buildings = Building.paginate(:page => params[:page])
@@ -34,18 +34,6 @@ class BuildingsController < CrudController
         format.html { render :edit }
         format.json { render json: @building.errors, status: :unprocessable_entity }
       end
-    end
-  end
-
-  def destroy
-    if @building.destroy
-      respond_to do |format|
-        format.html { redirect_to buildings_url, notice: 'Building was successfully destroyed.' }
-        format.json { head :no_content }
-      end
-    else
-      flash[:notice] = 'Building can not be destroyed.'
-      redirect_to root_path
     end
   end
 

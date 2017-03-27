@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   resources :keys, except: [:new, :show, :edit]
   resources :addresses
   resources :people
-  resources :buildings
+  resources :buildings, except: [:destroy]
   resources :visits
 
   get 'set_status_to_available' => 'keys#set_status_to_available', via: :get
