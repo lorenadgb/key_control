@@ -10,7 +10,7 @@ pt-BR:
         city: Cidade
         complement: Complemento
         created_at: Criado em
-        name: Nome
+        name: Logradouro
         neighborhood: Bairro
         number: Número
         observation: Observação
