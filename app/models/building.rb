@@ -19,6 +19,18 @@ class Building < ApplicationRecord
 
   scope :actives, -> { where( active: true ) }
 
+  def can_be_disabled?
+    if Visit.by_building_id(self.id).empty?
+      update_column :active, false
+    else
+      false
+    end
+  end
+
+  def enable
+    update_column :active, true
+  end
+
   private
 
   def at_least_one_key

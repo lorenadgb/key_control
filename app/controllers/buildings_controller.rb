@@ -1,5 +1,5 @@
 class BuildingsController < CrudController
-  before_action :set_building, only: [:show, :edit, :update]
+  before_action :set_building, only: [:show, :edit, :update, :enable, :disable]
 
   def index
     @buildings = Building.paginate(:page => params[:page])
@@ -35,6 +35,23 @@ class BuildingsController < CrudController
         format.json { render json: @building.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  def enable
+    Building.transaction do
+      @building.enable
+      flash[:notice] = 'Building was enabled.'
+      redirect_to root_path
+    end
+  end
+
+  def disable
+    if @building.can_be_disabled?
+      flash[:notice] = 'Building was disabled.'
+    else
+      flash[:error] = 'Building can not be disabled.'
+    end
+    redirect_to root_path
   end
 
   private

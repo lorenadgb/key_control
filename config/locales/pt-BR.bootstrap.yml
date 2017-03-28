@@ -11,6 +11,8 @@ pt-BR:
       cancel: 'Cancelar'
       confirm: 'Você tem certeza?'
       destroy: 'Deletar'
+      enable: 'Habilitar'
+      disable: 'Desabilitar'
       new: 'Novo'
       edit: 'Editar'
     titles:
