@@ -10,11 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170322224025) do
+ActiveRecord::Schema.define(version: 20170328235754) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-  enable_extension "hstore"
 
   create_table "addresses", force: :cascade do |t|
     t.string   "name"
@@ -56,7 +55,7 @@ ActiveRecord::Schema.define(version: 20170322224025) do
     t.string   "name"
     t.string   "mother"
     t.string   "father"
-    t.string   "cpf"
+    t.string   "cpf_cnpj"
     t.string   "nationality"
     t.string   "gender"
     t.date     "birthdate"

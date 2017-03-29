@@ -1,8 +1,8 @@
 class Person < ApplicationRecord
   extend EnumerateIt
 
-  validates :name, :cpf, :email, :mobile_number, :personable_type, presence: true
-  validates :email, :cpf, uniqueness: true
+  validates :name, :cpf_cnpj, :email, :mobile_number, :personable_type, presence: true
+  validates :email, :cpf_cnpj, uniqueness: true
   validates :email, format: { with: /\A([\w+\-].?)+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i }
 
   has_enumeration_for :gender

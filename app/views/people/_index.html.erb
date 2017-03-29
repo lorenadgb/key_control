@@ -4,7 +4,7 @@
   <tr>
     <th><%= model_class.human_attribute_name(:id) %></th>
     <th><%= model_class.human_attribute_name(:name) %></th>
-    <th><%= model_class.human_attribute_name(:cpf) %></th>
+    <th><%= model_class.human_attribute_name(:cpf_cnpj) %></th>
     <th><%= model_class.human_attribute_name(:email) %></th>
     <th><%= model_class.human_attribute_name(:phone_number) %></th>
     <th><%= model_class.human_attribute_name(:mobile_number) %></th>
@@ -17,7 +17,7 @@
       <tr>
         <td><%= link_to person.id, person_path(person) %></td>
         <td><%= person.name %></td>
-        <td><%= person.cpf %></td>
+        <td><%= person.cpf_cnpj %></td>
         <td><%= person.email %></td>
         <td><%= person.phone_number %></td>
         <td><%= person.mobile_number %></td>

@@ -8,7 +8,7 @@ pt-BR:
     attributes:
       person:
         birthdate: Data de nascimento
-        cpf: CPF
+        cpf_cnpj: CPF/CNPJ
         created_at: Criado em
         email: E-mail
         fax: Fax
