@@ -1,0 +1,35 @@
+<%= simple_form_for :keychain, :url => url_for(:action => 'print', :controller => 'keychains'), defaults: { required: false }, :method => 'post' do |f| %>
+  <%= f.input :all, as: :boolean %>
+
+  <div class="row">
+    <div class="col-xs-3">
+      <%= f.input :key_code %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-5">
+      <%= f.input :building, collection: Building.actives, label_method: :code, value_method: :id %>
+    </div>
+
+    <div class="col-xs-5">
+      <%= f.input :owner,    collection: Person.owners %>
+    </div>
+  </div>
+
+  <%= f.button :submit, 'Gerar' %>
+<% end %>
+
+<script>
+  $('#keychain_all').change(function() {
+    if (this.checked) {
+      $('#keychain_key_code').attr('disabled', true);
+      $('#keychain_building').attr('disabled', true);
+      $('#keychain_owner').attr('disabled', true);
+    } else {
+      $('#keychain_key_code').attr('disabled', false);
+      $('#keychain_building').attr('disabled', false);
+      $('#keychain_owner').attr('disabled', false);
+    }
+  });
+</script>

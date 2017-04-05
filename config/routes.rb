@@ -3,7 +3,13 @@ Rails.application.routes.draw do
   root 'pages#index'
 
   resources :real_state_agencies, except: :destroy
-  resources :keys, except: [:new, :show, :edit]
+  resources :keys, except: [:new, :show, :edit] do
+    collection do
+      get  'print' => 'keychains#print', via: :get
+      post 'print' => 'keychains#print', via: :post
+      get  'print_keychains' => 'keychains#print_keychains', via: :get
+    end
+  end
   resources :addresses
   resources :people
   resources :buildings, except: [:destroy] do
