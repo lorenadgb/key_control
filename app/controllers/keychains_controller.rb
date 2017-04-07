@@ -1,21 +1,21 @@
 class KeychainsController < CrudController
 
-  before_action :find_keys, only: :print
-
   def print
     if params[:keychain]
       if find_keys.any?
-        @keys = find_keys
-        respond_to do |format|
-          format.html { redirect_to print_keychains_keys_path }
-        end
+        print_keychains(find_keys)
       else
-        flash[:error] = 'Was not found any keys with the params.'
+        flash[:error] = 'Was not found any keys with the params'
       end
     end
   end
 
-  def print_keychains
+  def print_keychains(keys)
+    @keys = keys
+    pdf = WickedPdf.new.pdf_from_string(
+        render_to_string('print_keychains', layout: false)
+    )
+    send_data pdf, filename: 'keychains.pdf', type: 'application/pdf'
   end
 
   private
