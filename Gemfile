@@ -19,6 +19,8 @@ gem "twitter-bootstrap-rails"
 gem 'devise'
 gem 'will_paginate'
 gem 'cocoon'
+gem 'wicked_pdf'
+gem 'wkhtmltopdf-binary'
 
 gem 'jquery-rails'
 gem 'turbolinks', '~> 5'
