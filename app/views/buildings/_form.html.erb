@@ -17,6 +17,11 @@
   </div>
 
   <%= f.input :observation %>
+  <div class="row">
+    <div class="col-xs-3">
+      <%= f.input :status, collection: BuildingStatus %>
+    </div>
+  </div>
   <%= f.input :active %>
 
   <%= f.simple_fields_for :address, @building.address do |b| %>

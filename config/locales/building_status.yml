@@ -1,0 +1,6 @@
+pt-BR:
+  enumerations:
+    building_status:
+      available: Disponível
+      rented: Alugado
+      sold: Vendido

@@ -8,6 +8,7 @@ class Building < ApplicationRecord
   validate :at_least_one_key
 
   has_enumeration_for :building_type
+  has_enumeration_for :status, with: BuildingStatus
 
   has_one :address, as: :addressable, dependent: :destroy
   accepts_nested_attributes_for :address
