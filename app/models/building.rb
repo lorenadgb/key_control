@@ -19,6 +19,7 @@ class Building < ApplicationRecord
   has_many :visits, dependent: :destroy
 
   scope :actives, -> { where( active: true ) }
+  scope :by_person_id, -> (person_id){ where( person_id: person_id ) }
 
   def can_be_disabled?
     if Visit.by_building_id(self.id).empty?

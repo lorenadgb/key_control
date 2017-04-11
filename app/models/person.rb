@@ -18,11 +18,18 @@ class Person < ApplicationRecord
   scope :visitors, -> { where( personable_type: PersonableType::VISITOR ) }
 
   before_destroy :has_visits?
+  before_destroy :has_buildings?
 
   private
 
   def has_visits?
     if Visit.by_owner_id(self.id).any? || Visit.by_realtor_id(self.id).any? || Visit.by_visitor_id(self.id).any?
+      throw :abort
+    end
+  end
+
+  def has_buildings?
+    if Building.by_person_id(self.id).any?
       throw :abort
     end
   end
