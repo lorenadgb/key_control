@@ -22,8 +22,6 @@
   <dd><%= @person.phone_number %></dd>
   <dt><strong><%= model_class.human_attribute_name(:mobile_number) %>:</strong></dt>
   <dd><%= @person.mobile_number %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:fax) %>:</strong></dt>
-  <dd><%= @person.fax %></dd>
   <dt><strong><%= model_class.human_attribute_name(:created_at) %>:</strong></dt>
   <dd><%= I18n.l(@person.created_at, format: :default) %></dd>
   <dt><strong><%= model_class.human_attribute_name(:updated_at) %>:</strong></dt>
