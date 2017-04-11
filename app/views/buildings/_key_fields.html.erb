@@ -5,16 +5,13 @@
         <%= f.input :code %>
       </div>
 
-      <div class="col-xs-7 col-sm-offset-1">
+      <div class="col-xs-5 col-sm-offset-1">
         <%= f.input :description %>
       </div>
-    </div>
-
-    <div class="row">
-      <div class='form-inline '>
-        <%= link_to_remove_association 'Remover chave', f, class: 'btn btn-danger' %>
-      </div>
       </br>
+      <div class="col-xs-1">
+      <%= link_to_remove_association 'Remover chave', f, class: 'btn btn-danger' %>
+      </div>
    </div>
   </div>
 </div>

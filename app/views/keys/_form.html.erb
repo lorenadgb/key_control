@@ -1,11 +1,17 @@
-<div class="container">
-  <div class="row">
-    <div class="col-xs-3">
-      <%= f.input :code %>
-    </div>
+<div class='nested-fields'>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-3">
+        <%= f.input :code %>
+      </div>
 
-    <div class="col-xs-7 col-sm-offset-1">
-      <%= f.input :description %>
+      <div class="col-xs-5 col-sm-offset-1">
+        <%= f.input :description %>
+      </div>
+      </br>
+      <div class="col-xs-1">
+        <%= link_to_remove_association 'Remover chave', f, class: 'btn btn-danger' %>
+      </div>
     </div>
   </div>
 </div>
