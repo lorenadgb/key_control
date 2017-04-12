@@ -5,7 +5,12 @@
 
       <div class="col-md-1">
           <div class="clearfix">
-            <% if key.status == KeyStatus::AVAILABLE %>
+            <% if key.building.status == BuildingStatus::RENTED || key.building.status == BuildingStatus::SOLD %>
+                <div>
+                  <p class="text-center"><%= truncate(key.code, length: 9) %></p>
+                </div>
+                <i class="fa fa-home fa-3x fa-custom" aria-hidden="true" style="color: green"></i>
+            <% elsif key.status == KeyStatus::AVAILABLE %>
               <div>
                 <p class="text-center"><%= truncate(key.code, length: 9) %></p>
               </div>

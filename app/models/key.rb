@@ -8,7 +8,7 @@ class Key < ApplicationRecord
   scope :by_building_id, -> (building_id){ where( building_id: building_id ) }
   scope :by_owner_id, -> (owner_id){ Key.joins(:building).where(buildings: {person_id: owner_id}) }
   scope :availables, -> { Key.joins(:building).where(buildings: {status: BuildingStatus::AVAILABLE}).where( status: KeyStatus::AVAILABLE ) }
-  scope :actives, -> { Key.joins(:building).where(buildings: {active: true}).where(buildings: {status: BuildingStatus::AVAILABLE}) }
+  scope :actives, -> { Key.joins(:building).where(buildings: {active: true}) }
 
   def update_key_status_to_borrowed
     update_column :status, KeyStatus::BORROWED
