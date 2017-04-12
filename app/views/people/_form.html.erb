@@ -12,16 +12,6 @@
     </div>
   </div>
 
-  <div class="row">
-    <div class="col-xs-5">
-      <%= f.input :mother %>
-    </div>
-
-    <div class="col-xs-5 col-sm-offset-1">
-      <%= f.input :father %>
-    </div>
-  </div>
-
   <%= f.input :gender, :as => :radio_buttons, :collection => Gender %>
   <%= f.input :birthdate, start_year: Date.today.year - 110, end_year: Date.today.year %>
 
