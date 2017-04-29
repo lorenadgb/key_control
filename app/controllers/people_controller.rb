@@ -38,7 +38,6 @@ class PeopleController < CrudController
   end
 
   def destroy
-    binding.pry
     if @person.destroy
     respond_to do |format|
       format.html { redirect_to people_url, notice: 'Person was successfully destroyed.' }
