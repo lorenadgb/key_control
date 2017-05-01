@@ -12,10 +12,12 @@ class Person < ApplicationRecord
   accepts_nested_attributes_for :address
 
   has_many :visits
+  has_many :buildings
 
   scope :owners,   -> { where( personable_type: PersonableType::OWNER ) }
   scope :realtors, -> { where( personable_type: PersonableType::REALTOR ) }
   scope :visitors, -> { where( personable_type: PersonableType::VISITOR ) }
+  scope :by_building_id, -> (building_id){ Person.joins(:buildings).where(buildings: {id: building_id}) }
 
   before_destroy :has_visits?
   before_destroy :has_buildings?

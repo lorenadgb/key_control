@@ -51,17 +51,8 @@
 
 <script>
   $('#visit_building_id').change(function() {
-    $('#visit_key_id').html('<option value=""></option>');
-
-    var url = '/update_keys?building_id=' + $(this).val();
-    var listitems = [];
-
-    $.get(url, function(data) {
-      data.forEach(function(key){
-        listitems += '<option value="' + key.id + '">' + key.code + '</option>';
-      });
-      $('#visit_key_id').append(listitems);
-    });
+    updateKeys($(this));
+    updateOwner($(this));
   });
 
   $('#visit_owner_id').change(function() {
@@ -77,4 +68,32 @@
       $('#visit_building_id').append(listitems);
     });
   });
+
+  function updateKeys(e) {
+    $('#visit_key_id').html('<option value=""></option>');
+
+    var url = '/update_keys?building_id=' + e.val();
+    var listitems = [];
+
+    $.get(url, function(data) {
+      data.forEach(function(key){
+        listitems += '<option value="' + key.id + '">' + key.code + '</option>';
+      });
+      $('#visit_key_id').append(listitems);
+    });
+  }
+
+  function updateOwner(e) {
+    $('#visit_owner_id').html('<option value=""></option>');
+
+    var url = '/update_owner?building_id=' + e.val();
+    var listitems = [];
+
+    $.get(url, function(data) {
+      data.forEach(function(owner){
+        listitems += '<option value="' + owner.id + '" selected>' + owner.name + '</option>';
+      });
+      $('#visit_owner_id').append(listitems);
+    });
+  }
 </script>

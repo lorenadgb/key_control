@@ -67,6 +67,13 @@ class VisitsController < CrudController
     end
   end
 
+  def update_owner
+    if params[:building_id]
+      owner = Person.by_building_id(params[:building_id]).owners
+      render json: owner.to_json(only: [:id, :name])
+    end
+  end
+
   private
     def set_visit
       @visit = Visit.find(params[:id])
