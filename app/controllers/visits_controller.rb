@@ -60,6 +60,13 @@ class VisitsController < CrudController
     end
   end
 
+  def update_buildings
+    if params[:person_id]
+      buildings = Building.by_person_id(params[:person_id]).actives
+      render json: buildings.to_json(only: [:id, :code])
+    end
+  end
+
   private
     def set_visit
       @visit = Visit.find(params[:id])

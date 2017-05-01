@@ -63,4 +63,18 @@
       $('#visit_key_id').append(listitems);
     });
   });
+
+  $('#visit_owner_id').change(function() {
+    $('#visit_building_id').html('<option value=""></option>');
+
+    var url = '/update_buildings?person_id=' + $(this).val();
+    var listitems = [];
+
+    $.get(url, function(data) {
+      data.forEach(function(building){
+        listitems += '<option value="' + building.id + '">' + building.code + '</option>';
+      });
+      $('#visit_building_id').append(listitems);
+    });
+  });
 </script>
