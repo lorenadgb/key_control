@@ -15,6 +15,8 @@ class Person < ApplicationRecord
   has_many :visits
   has_many :buildings
 
+  default_scope { order(created_at: :desc) }
+
   scope :owners,   -> { where( personable_type: PersonableType::OWNER ) }
   scope :realtors, -> { where( personable_type: PersonableType::REALTOR ) }
   scope :visitors, -> { where( personable_type: PersonableType::VISITOR ) }

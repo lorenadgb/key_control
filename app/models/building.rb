@@ -21,6 +21,8 @@ class Building < ApplicationRecord
   scope :actives, -> { where( active: true ) }
   scope :by_person_id, -> (person_id){ where( person_id: person_id ) }
 
+  default_scope { order(created_at: :desc) }
+
   def can_be_disabled?
     if Visit.by_building_id(self.id).empty?
       update_column :active, false

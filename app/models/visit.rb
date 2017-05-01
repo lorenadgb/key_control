@@ -14,6 +14,8 @@ class Visit < ApplicationRecord
 
   before_destroy :check_if_the_key_is_available
 
+  default_scope { order(created_at: :desc) }
+
   scope :finished_at_is_nil, -> { where(finished_at: nil) }
   scope :by_key_id, ->(key) { where( key_id: key ).finished_at_is_nil.last }
   scope :by_owner_id,   ->(owner)   { where( owner_id: owner ) }
