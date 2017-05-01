@@ -50,15 +50,23 @@
 <% end %>
 
 <script>
+  $('#visit_key_id').attr("disabled", true);
+
   $('#visit_building_id').change(function() {
     updateKeys($(this));
     updateOwner($(this));
+    updateValues();
   });
 
   $('#visit_owner_id').change(function() {
+    updateBuildings($(this));
+    updateValues();
+  });
+
+  function updateBuildings(e) {
     $('#visit_building_id').html('<option value=""></option>');
 
-    var url = '/update_buildings?person_id=' + $(this).val();
+    var url = '/update_buildings?person_id=' + e.val();
     var listitems = [];
 
     $.get(url, function(data) {
@@ -67,7 +75,7 @@
       });
       $('#visit_building_id').append(listitems);
     });
-  });
+  }
 
   function updateKeys(e) {
     $('#visit_key_id').html('<option value=""></option>');
@@ -95,5 +103,28 @@
       });
       $('#visit_owner_id').append(listitems);
     });
+  }
+
+  function updateValues() {
+    if (($('#visit_building_id').val() == '') && ($('#visit_owner_id').val() == '')) {
+      $('#visit_key_id').attr("disabled", true);
+
+      var buildings = <%= Building.actives.to_json(only: [:id, :code]).html_safe %>;
+      var owners = <%= Person.owners.to_json(only: [:id, :name]).html_safe %>;
+
+      listitems = [];
+      buildings.forEach(function(building){
+        listitems += '<option value="' + building.id + '">' + building.code + '</option>';
+      });
+      $('#visit_building_id').append(listitems);
+
+      listitems = [];
+      owners.forEach(function(owner){
+        listitems += '<option value="' + owner.id + '">' + owner.name + '</option>';
+      });
+      $('#visit_owner_id').append(listitems);
+    } else {
+      $('#visit_key_id').attr("disabled", false);
+    }
   }
 </script>
