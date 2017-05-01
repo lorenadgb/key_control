@@ -1,37 +1,37 @@
 <div>
 
   <ul class="nav nav-tabs" role="tablist">
-    <li role="presentation" class="active"><a href="#keys" aria-controls="keys" role="tab" data-toggle="tab">Chaves</a></li>
-    <li role="presentation"><a href="#buildings" aria-controls="buildings" role="tab" data-toggle="tab">Imóveis</a></li>
-    <li role="presentation"><a href="#owners" aria-controls="messages" role="tab" data-toggle="tab">Proprietários</a></li>
-    <li role="presentation"><a href="#visitors" aria-controls="settings" role="tab" data-toggle="tab">Visitantes</a></li>
-    <li role="presentation"><a href="#realtors" aria-controls="settings" role="tab" data-toggle="tab">Corretores</a></li>
-    <li role="presentation"><a href="#visits" aria-controls="settings" role="tab" data-toggle="tab">Visitas</a></li>
+    <li role="presentation" class="<%= @tab.nil? || @tab == 'key' ? 'active' : '' %>"><a href="#keys" aria-controls="keys" role="tab" data-toggle="tab">Chaves</a></li>
+    <li role="presentation" class="<%= @tab == 'building' ? 'active' : '' %>"><a href="#buildings" aria-controls="buildings" role="tab" data-toggle="tab">Imóveis</a></li>
+    <li role="presentation" class="<%= @tab == 'owner' ? 'active' : '' %>"><a href="#owners" aria-controls="messages" role="tab" data-toggle="tab">Proprietários</a></li>
+    <li role="presentation" class="<%= @tab == 'visitor' ? 'active' : '' %>"><a href="#visitors" aria-controls="settings" role="tab" data-toggle="tab">Visitantes</a></li>
+    <li role="presentation" class="<%= @tab == 'realtor' ? 'active' : '' %>"><a href="#realtors" aria-controls="settings" role="tab" data-toggle="tab">Corretores</a></li>
+    <li role="presentation" class="<%= @tab == 'visit' ? 'active' : '' %>"><a href="#visits" aria-controls="settings" role="tab" data-toggle="tab">Visitas</a></li>
   </ul>
 
   <div class="tab-content">
-    <div role="tabpanel" class="tab-pane active" id="keys">
+    <div role="tabpanel" class="tab-pane <%= @tab.nil? || @tab == 'key' ? 'active' : '' %>" id="keys">
       <%= render 'keys/index' %>
     </div>
-    <div role="tabpanel" class="tab-pane" id="buildings">
+    <div role="tabpanel" class="tab-pane <%= @tab == 'building' ? 'active' : '' %>" id="buildings">
       <%= render 'buildings/index' %>
     </div>
-    <div role="tabpanel" class="tab-pane" id="owners">
+    <div role="tabpanel" class="tab-pane <%= @tab == 'owner' ? 'active' : '' %>" id="owners">
       <% @people = @owners %>
       <% @personable_type = PersonableType::OWNER %>
       <%= render 'people/index' %>
     </div>
-    <div role="tabpanel" class="tab-pane" id="visitors">
+    <div role="tabpanel" class="tab-pane <%= @tab == 'visitor' ? 'active' : '' %>" id="visitors">
       <% @people = @visitors %>
       <% @personable_type = PersonableType::VISITOR %>
       <%= render 'people/index' %>
     </div>
-    <div role="tabpanel" class="tab-pane" id="realtors">
+    <div role="tabpanel" class="tab-pane <%= @tab == 'realtor' ? 'active' : '' %>" id="realtors">
       <% @people = @realtors %>
       <% @personable_type = PersonableType::REALTOR %>
       <%= render 'people/index' %>
     </div>
-    <div role="tabpanel" class="tab-pane" id="visits">
+    <div role="tabpanel" class="tab-pane <%= @tab == 'visit' ? 'active' : '' %>" id="visits">
       <%= render 'visits/index' %>
     </div>
   </div>

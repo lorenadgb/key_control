@@ -8,5 +8,7 @@ class PagesController < CrudController
     @visitors  = Person.visitors.paginate(page: params[:page])
     @realtors  = Person.realtors.paginate(page: params[:page])
     @visits    = Visit.paginate(page: params[:page])
+
+    @tab = params[:tab]
   end
 end

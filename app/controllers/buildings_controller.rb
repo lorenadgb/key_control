@@ -25,7 +25,7 @@ class BuildingsController < CrudController
     Building.transaction do
       @building.enable
       flash[:notice] = t 'controllers.building.notices.was_enabled'
-      redirect_to root_path
+      redirect_to root_path(tab: 'building')
     end
   end
 
@@ -35,7 +35,7 @@ class BuildingsController < CrudController
     else
       flash[:error] = t 'controllers.building.notices.can_not_be_disabled'
     end
-    redirect_to root_path
+    redirect_to root_path(tab: 'building')
   end
 
   private
