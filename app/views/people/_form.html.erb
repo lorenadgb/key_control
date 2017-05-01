@@ -43,6 +43,8 @@
 <% end %>
 
 <script>
+  $('#person_mobile_number').mask('(00) 00000-0000');
+  $('#person_phone_number').mask('(00) 0000-0000');
   $('#person_cpf_cnpj').mask('000.000.000-00', {reverse: true});
 
   $('#person_person_type_individual').change(function() {
