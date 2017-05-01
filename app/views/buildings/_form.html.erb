@@ -47,3 +47,7 @@
   <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
                 buildings_path, :class => 'btn btn-default' %>
 <% end %>
+
+<script>
+  $('#building_address_attributes_cep').mask('00000-000');
+</script>

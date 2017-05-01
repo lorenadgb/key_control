@@ -57,6 +57,6 @@ class PeopleController < CrudController
     def person_params
       params.require(:person).permit(:name, :mother, :father, :cpf_cnpj, :nationality, :gender, :birthdate,
                                      :email, :phone_number, :mobile_number, :fax, :personable_type, :person_type,
-                                     address_attributes: [:id, :name, :number, :complement, :city, :neighborhood, :street_type, :observation])
+                                     address_attributes: [:id, :name, :number, :complement, :city, :neighborhood, :street_type, :observation, :cep])
     end
 end

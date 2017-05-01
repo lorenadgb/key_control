@@ -7,6 +7,7 @@ pt-BR:
 
     attributes:
       address:
+        cep: CEP
         city: Cidade
         complement: Complemento
         created_at: Criado em

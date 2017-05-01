@@ -49,6 +49,6 @@ class AddressesController < CrudController
     end
 
     def address_params
-      params.require(:address).permit(:name, :number, :complement, :city, :neighborhood, :street_type, :observation)
+      params.require(:address).permit(:name, :number, :complement, :city, :neighborhood, :street_type, :observation, :cep)
     end
 end

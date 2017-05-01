@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170501172737) do
+ActiveRecord::Schema.define(version: 20170501184017) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 20170501172737) do
     t.datetime "updated_at",       null: false
     t.string   "addressable_type"
     t.integer  "addressable_id"
+    t.string   "cep"
     t.index ["addressable_type", "addressable_id"], name: "index_addresses_on_addressable_type_and_addressable_id", using: :btree
   end
 
@@ -67,7 +68,6 @@ ActiveRecord::Schema.define(version: 20170501172737) do
     t.datetime "created_at",                             null: false
     t.datetime "updated_at",                             null: false
     t.string   "personable_type"
-    t.string   "type",            default: "individual"
     t.string   "person_type",     default: "individual"
   end
 
