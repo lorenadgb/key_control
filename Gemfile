@@ -21,6 +21,7 @@ gem 'will_paginate'
 gem 'cocoon'
 gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary'
+gem 'jquery_mask_rails'
 
 gem 'jquery-rails'
 gem 'turbolinks', '~> 5'
