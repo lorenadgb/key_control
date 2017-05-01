@@ -53,6 +53,13 @@ class VisitsController < CrudController
     end
   end
 
+  def update_keys
+    if params[:building_id]
+      keys = Key.by_building_id(params[:building_id]).availables
+      render json: keys.to_json(only: [:id, :code])
+    end
+  end
+
   private
     def set_visit
       @visit = Visit.find(params[:id])

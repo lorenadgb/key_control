@@ -22,4 +22,5 @@ Rails.application.routes.draw do
   resources :visits
 
   get 'set_status_to_available' => 'keys#set_status_to_available', via: :get
+  get 'update_keys'      => 'visits#update_keys', via: :get
 end

@@ -48,3 +48,19 @@
   <%= f.button :submit %>
 
 <% end %>
+
+<script>
+  $('#visit_building_id').change(function() {
+    $('#visit_key_id').html('<option value=""></option>');
+
+    var url = '/update_keys?building_id=' + $(this).val();
+    var listitems = [];
+
+    $.get(url, function(data) {
+      data.forEach(function(key){
+        listitems += '<option value="' + key.id + '">' + key.code + '</option>';
+      });
+      $('#visit_key_id').append(listitems);
+    });
+  });
+</script>
