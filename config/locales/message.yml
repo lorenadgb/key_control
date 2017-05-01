@@ -1,0 +1,11 @@
+pt-BR:
+  controllers:
+    keychain:
+      errors:
+        not_found: Não foi encontrada nenhuma chave com os filtros selecionados
+    building:
+      notices:
+        was_disabled: Imóvel foi desativado
+        was_enabled: Imóvel foi ativado
+      errors:
+        can_not_be_disabled: Imóvel não pode ser desativado. Possui alguma dependência

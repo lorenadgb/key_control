@@ -24,16 +24,16 @@ class BuildingsController < CrudController
   def enable
     Building.transaction do
       @building.enable
-      flash[:notice] = 'Building was enabled.'
+      flash[:notice] = t 'controllers.building.notices.was_enabled'
       redirect_to root_path
     end
   end
 
   def disable
     if @building.can_be_disabled?
-      flash[:notice] = 'Building was disabled.'
+      flash[:notice] = t 'controllers.building.notices.was_disabled'
     else
-      flash[:error] = 'Building can not be disabled.'
+      flash[:error] = t 'controllers.building.notices.can_not_be_disabled'
     end
     redirect_to root_path
   end

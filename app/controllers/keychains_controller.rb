@@ -5,7 +5,7 @@ class KeychainsController < CrudController
       if find_keys.any?
         print_keychains(find_keys)
       else
-        flash[:error] = 'Was not found any keys with the params'
+        flash[:error] = I18n.t 'controllers.keychain.errors.not_found'
       end
     end
   end
