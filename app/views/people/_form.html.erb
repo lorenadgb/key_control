@@ -41,3 +41,15 @@
   <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
                 people_path, :class => 'btn btn-default' %>
 <% end %>
+
+<script>
+  $('#person_cpf_cnpj').mask('000.000.000-00', {reverse: true});
+
+  $('#person_person_type_individual').change(function() {
+    $('#person_cpf_cnpj').mask('000.000.000-00', {reverse: true});
+  });
+
+  $('#person_person_type_company').change(function() {
+    $('#person_cpf_cnpj').mask('00.000.000/0000-00', {reverse: true});
+  });
+</script>
