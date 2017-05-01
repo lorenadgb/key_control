@@ -6,37 +6,18 @@ class KeysController < CrudController
   end
 
   def create
-    @key = Key.new(key_params)
-
-    respond_to do |format|
-      if @key.save
-        format.html { redirect_to @key, notice: 'Key was successfully created.' }
-        format.json { render :show, status: :created, location: @key }
-      else
-        format.html { render :new }
-        format.json { render json: @key.errors, status: :unprocessable_entity }
-      end
-    end
+    @key = Key.create(key_params)
+    respond_with(@key, location: @key)
   end
 
   def update
-    respond_to do |format|
-      if @key.update(key_params)
-        format.html { redirect_to @key, notice: 'Key was successfully updated.' }
-        format.json { render :show, status: :ok, location: @key }
-      else
-        format.html { render :edit }
-        format.json { render json: @key.errors, status: :unprocessable_entity }
-      end
-    end
+    @key.update(key_params)
+    respond_with(@key, location: @key)
   end
 
   def destroy
     @key.destroy
-    respond_to do |format|
-      format.html { redirect_to keys_url, notice: 'Key was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    respond_with(@key, location: root_path)
   end
 
   def set_status_to_available

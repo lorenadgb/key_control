@@ -11,29 +11,13 @@ class RealStateAgenciesController < CrudController
   end
 
   def create
-    @real_state_agency = RealStateAgency.new(real_state_agency_params)
-
-    respond_to do |format|
-      if @real_state_agency.save
-        format.html { redirect_to @real_state_agency, notice: 'Real state agency was successfully created.' }
-        format.json { render :show, status: :created, location: @real_state_agency }
-      else
-        format.html { render :new }
-        format.json { render json: @real_state_agency.errors, status: :unprocessable_entity }
-      end
-    end
+    @real_state_agency = RealStateAgency.create(real_state_agency_params)
+    respond_with(@real_state_agency, location: @real_state_agency)
   end
 
   def update
-    respond_to do |format|
-      if @real_state_agency.update(real_state_agency_params)
-        format.html { redirect_to @real_state_agency, notice: 'Real state agency was successfully updated.' }
-        format.json { render :show, status: :ok, location: @real_state_agency }
-      else
-        format.html { render :edit }
-        format.json { render json: @real_state_agency.errors, status: :unprocessable_entity }
-      end
-    end
+    @real_state_agency.update(real_state_agency_params)
+    respond_with(@real_state_agency, location: @real_state_agency)
   end
 
   private

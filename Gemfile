@@ -22,6 +22,7 @@ gem 'cocoon'
 gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary'
 gem 'jquery_mask_rails'
+gem 'responders'
 
 gem 'jquery-rails'
 gem 'turbolinks', '~> 5'

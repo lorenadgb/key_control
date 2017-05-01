@@ -5,52 +5,23 @@ class VisitsController < CrudController
     @visits = Visit.all
   end
 
-  def show
-  end
-
   def new
     @visit = Visit.new
   end
 
-  def edit
-  end
-
   def create
-    @visit = Visit.new(visit_params)
-
-    respond_to do |format|
-      if @visit.save
-        format.html { redirect_to @visit, notice: 'Visit was successfully created.' }
-        format.json { render :show, status: :created, location: @visit }
-      else
-        format.html { render :new }
-        format.json { render json: @visit.errors, status: :unprocessable_entity }
-      end
-    end
+    @visit = Visit.create(visit_params)
+    respond_with(@visit, location: @visit)
   end
 
   def update
-    respond_to do |format|
-      if @visit.update(visit_params)
-        format.html { redirect_to @visit, notice: 'Visit was successfully updated.' }
-        format.json { render :show, status: :ok, location: @visit }
-      else
-        format.html { render :edit }
-        format.json { render json: @visit.errors, status: :unprocessable_entity }
-      end
-    end
+    @visit.update(visit_params)
+    respond_with(@visit, location: @visit)
   end
 
   def destroy
-    if @visit.destroy
-      respond_to do |format|
-        format.html { redirect_to root_path, notice: 'Visit was successfully destroyed.' }
-        format.json { head :no_content }
-      end
-    else
-      flash[:notice] = 'Visit can not be destroyed.'
-      redirect_to root_path
-    end
+    @visit.destroy
+    respond_with(@visit, location: root_path)
   end
 
   def update_keys

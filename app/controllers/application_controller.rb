@@ -1,6 +1,9 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
+  respond_to :html, :json
+  responders :flash
+
   def index
     redirect_to :new_real_state_agency unless real_state_agency?
   end

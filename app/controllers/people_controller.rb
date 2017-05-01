@@ -12,41 +12,18 @@ class PeopleController < CrudController
   end
 
   def create
-    @person = Person.new(person_params)
-
-    respond_to do |format|
-      if @person.save
-        format.html { redirect_to @person, notice: 'Person was successfully created.' }
-        format.json { render :show, status: :created, location: @person }
-      else
-        format.html { render :new }
-        format.json { render json: @person.errors, status: :unprocessable_entity }
-      end
-    end
+    @person = Person.create(person_params)
+    respond_with(@person, location: @person)
   end
 
   def update
-    respond_to do |format|
-      if @person.update(person_params)
-        format.html { redirect_to @person, notice: 'Person was successfully updated.' }
-        format.json { render :show, status: :ok, location: @person }
-      else
-        format.html { render :edit }
-        format.json { render json: @person.errors, status: :unprocessable_entity }
-      end
-    end
+    @person.update(person_params)
+    respond_with(@person, location: @person)
   end
 
   def destroy
-    if @person.destroy
-    respond_to do |format|
-      format.html { redirect_to people_url, notice: 'Person was successfully destroyed.' }
-      format.json { head :no_content }
-    end
-    else
-      flash[:error] = 'Person can not be destroyed.'
-      redirect_to root_path
-    end
+    @person.destroy
+    respond_with(@person, location: root_path)
   end
 
   private

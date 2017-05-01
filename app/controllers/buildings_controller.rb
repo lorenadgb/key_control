@@ -12,29 +12,13 @@ class BuildingsController < CrudController
   end
 
   def create
-    @building = Building.new(building_params)
-
-    respond_to do |format|
-      if @building.save
-        format.html { redirect_to @building, notice: 'Building was successfully created.' }
-        format.json { render :show, status: :created, location: @building }
-      else
-        format.html { render :new }
-        format.json { render json: @building.errors, status: :unprocessable_entity }
-      end
-    end
+    @building = Building.create(building_params)
+    respond_with(@building, location: @building)
   end
 
   def update
-    respond_to do |format|
-      if @building.update(building_params)
-        format.html { redirect_to @building, notice: 'Building was successfully updated.' }
-        format.json { render :show, status: :ok, location: @building }
-      else
-        format.html { render :edit }
-        format.json { render json: @building.errors, status: :unprocessable_entity }
-      end
-    end
+    @building.update(building_params)
+    respond_with(@building, location: @building)
   end
 
   def enable
