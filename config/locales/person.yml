@@ -19,5 +19,6 @@ pt-BR:
         name: Nome
         mother: Mãe
         personable_type: Tipo
+        person_type: Pessoa
         father: Pai
         updated_at: Atualizado em

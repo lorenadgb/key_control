@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170407011736) do
+ActiveRecord::Schema.define(version: 20170501172737) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -64,9 +64,11 @@ ActiveRecord::Schema.define(version: 20170407011736) do
     t.string   "phone_number"
     t.string   "mobile_number"
     t.string   "fax"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",                             null: false
+    t.datetime "updated_at",                             null: false
     t.string   "personable_type"
+    t.string   "type",            default: "individual"
+    t.string   "person_type",     default: "individual"
   end
 
   create_table "real_state_agencies", force: :cascade do |t|

@@ -1,0 +1,5 @@
+pt-BR:
+  enumerations:
+    person_type:
+      company: Jurídica
+      individual: Física
