@@ -23,7 +23,9 @@ class PeopleController < CrudController
 
   def destroy
     @person.destroy
-    respond_with(@person, location: root_path(tab: @person.personable_type))
+    respond_with(@person, location: root_path(tab: @person.personable_type), responder: People::DestroyResponder)
+
+    redirect_to root_path(tab: @person.personable_type)
   end
 
   private
