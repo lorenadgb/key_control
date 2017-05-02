@@ -33,7 +33,7 @@ class BuildingsController < CrudController
     if @building.can_be_disabled?
       flash[:notice] = t 'controllers.building.notices.was_disabled'
     else
-      flash[:error] = t 'controllers.building.notices.can_not_be_disabled'
+      flash[:error] = t 'controllers.building.errors.can_not_be_disabled'
     end
     redirect_to root_path(tab: 'building')
   end

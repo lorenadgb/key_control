@@ -38,6 +38,9 @@ class Visit < ApplicationRecord
   private
 
   def check_if_the_key_is_available
-    throw :abort unless self.key.status == KeyStatus::AVAILABLE
+    unless self.key.status == KeyStatus::AVAILABLE
+      errors.add(:base, I18n.t('models.visit.errors.has_key_not_available'))
+      throw :abort
+    end
   end
 end

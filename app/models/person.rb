@@ -29,12 +29,14 @@ class Person < ApplicationRecord
 
   def has_visits?
     if Visit.by_owner_id(self.id).any? || Visit.by_realtor_id(self.id).any? || Visit.by_visitor_id(self.id).any?
+      errors.add(:base, I18n.t('models.person.errors.has_visit'))
       throw :abort
     end
   end
 
   def has_buildings?
     if Building.by_person_id(self.id).any?
+      errors.add(:base, I18n.t('models.person.errors.has_building'))
       throw :abort
     end
   end

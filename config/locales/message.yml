@@ -1,4 +1,13 @@
 pt-BR:
+  models:
+    person:
+      errors:
+        has_visit: Pessoa não pode ser deletada. Possui visita(s) associada(s) a algum imóvel de que é proprietário
+        has_building: Pessoa não pode ser deletada. Possui visita(s) associada(s) a algum imóvel de que é proprietário
+    visit:
+      errors:
+        has_key_not_available: Visita não pode ser deletada. Chave associada está com status diferente de 'disponível'
+
   controllers:
     keychain:
       errors:
