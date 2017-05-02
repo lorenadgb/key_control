@@ -15,7 +15,7 @@ class KeychainsController < CrudController
     pdf = WickedPdf.new.pdf_from_string(
         render_to_string('print_keychains', layout: false)
     )
-    send_data pdf, filename: 'keychains.pdf', type: 'application/pdf'
+    send_data pdf, filename: 'keychains.pdf', type: 'application/pdf', disposition: 'inline'
   end
 
   private
