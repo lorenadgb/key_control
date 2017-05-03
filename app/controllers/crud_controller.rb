@@ -7,4 +7,10 @@ class CrudController < ApplicationController
   def edit
   end
 
+  private
+
+  def authorize_admin
+    redirect_to root_path unless current_user.admin?
+  end
+
 end

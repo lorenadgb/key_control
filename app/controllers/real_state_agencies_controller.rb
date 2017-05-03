@@ -1,5 +1,6 @@
 class RealStateAgenciesController < CrudController
   before_action :set_real_state_agency, only: [:show, :edit, :update]
+  before_filter :authorize_admin, only: [:new, :create, :update]
 
   def index
     @real_state_agencies = RealStateAgency.all

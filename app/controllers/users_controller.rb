@@ -27,10 +27,6 @@ class UsersController < CrudController
 
   private
 
-  def authorize_admin
-    redirect_to root_path unless current_user.admin?
-  end
-
   def set_user
     @user = User.find(params[:id])
   end
