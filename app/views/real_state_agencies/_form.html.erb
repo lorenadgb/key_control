@@ -41,3 +41,7 @@
     <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
                 real_state_agencies_path, :class => 'btn btn-default' %>
 <% end %>
+
+<script>
+  $('#real_state_agency_cnpj').mask('00.000.000/0000-00', {reverse: true});
+</script>
