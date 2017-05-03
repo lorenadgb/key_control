@@ -1,0 +1,30 @@
+<%= simple_form_for @user, :html => { :class => 'form-horizontal' } do |f| %>
+
+  <div class="row">
+    <div class="col-xs-5">
+      <%= f.input :name %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-5">
+      <%= f.input :email %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-4">
+      <%= f.input :password %>
+    </div>
+
+    <div class="col-xs-4 col-sm-offset-1">
+      <%= f.input :password_confirmation %>
+    </div>
+  </div>
+
+  <%= f.input :admin %>
+
+  <%= f.input :active %>
+
+  <%= f.button :submit, :class => 'btn-primary' %>
+<% end %>

@@ -1,0 +1,17 @@
+pt-BR:
+  activerecord:
+    models:
+      user:
+        one: Usuário
+        other: Usuários
+
+    attributes:
+      user:
+        active: Ativo
+        admin: Administrador
+        created_at: Criado em
+        email: E-mail
+        name: Nome completo
+        password: Senha
+        password_confirmation: Confirmação da senha
+        updated_at: Atualizado em

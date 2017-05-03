@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { sessions: 'users/sessions' }, :skip => :registrations
   root 'pages#index'
 
+  resources :users
   resources :real_state_agencies, except: :destroy
   resources :keys, except: [:new, :show, :edit] do
     collection do
