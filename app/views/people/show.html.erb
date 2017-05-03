@@ -47,7 +47,7 @@
 </dl>
 
 <%= link_to t('.back', :default => t("helpers.links.back")),
-              people_path, :class => 'btn btn-default'  %>
+            root_path(tab: @person.personable_type), :class => 'btn btn-default'  %>
 <%= link_to t('.edit', :default => t("helpers.links.edit")),
               edit_person_path(@person), :class => 'btn btn-default' %>
 <%= link_to t('.destroy', :default => t("helpers.links.destroy")),

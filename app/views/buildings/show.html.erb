@@ -52,6 +52,6 @@
 </dl>
 
 <%= link_to t('.back', :default => t("helpers.links.back")),
-              buildings_path, :class => 'btn btn-default'  %>
+            root_path(tab: 'building'), :class => 'btn btn-default'  %>
 <%= link_to t('.edit', :default => t("helpers.links.edit")),
               edit_building_path(@building), :class => 'btn btn-default' %>

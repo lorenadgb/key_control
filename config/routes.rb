@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   resources :users
   resources :real_state_agencies, except: :destroy
-  resources :keys, except: [:new, :show, :edit] do
+  resources :keys, except: [:index, :new, :show, :edit] do
     collection do
       get  'print' => 'keychains#print', via: :get
       post 'print' => 'keychains#print', via: :post
@@ -12,15 +12,15 @@ Rails.application.routes.draw do
     end
   end
   resources :addresses
-  resources :people
-  resources :buildings, except: [:destroy] do
+  resources :people, except: [:index]
+  resources :buildings, except: [:index, :destroy] do
     collection do
       get 'disable/:id' => 'buildings#disable', as: 'disable'
       get 'enable/:id' => 'buildings#enable', as: 'enable'
     end
   end
 
-  resources :visits
+  resources :visits, except: [:index]
 
   get 'set_status_to_available' => 'keys#set_status_to_available', via: :get
   get 'update_keys'      => 'visits#update_keys', via: :get
