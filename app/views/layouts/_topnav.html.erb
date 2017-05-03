@@ -25,6 +25,7 @@
           <li class="dropdown-user">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Usuário <span class="caret"></span></a>
             <ul class="dropdown-menu">
+              <li><a href="#"><%= link_to '<i class="fa fa-user fa-fw"></i> Perfil'.html_safe, edit_user_path(current_user) %></a></li>
               <% if current_user.admin? %>
                 <li><a href="#"><%= link_to '<i class="fa fa-gear fa-fw"></i> Configurações'.html_safe, edit_real_state_agency_path(RealStateAgency.last) %></a></li>
                 <li role="separator" class="divider"></li>

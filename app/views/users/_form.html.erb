@@ -22,9 +22,9 @@
     </div>
   </div>
 
-  <%= f.input :admin %>
+  <%= f.input :admin, disabled: !current_user.admin? %>
 
-  <%= f.input :active %>
+  <%= f.input :active, disabled: !current_user.admin? %>
 
   <%= f.button :submit, :class => 'btn-primary' %>
 <% end %>

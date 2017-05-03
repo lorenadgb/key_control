@@ -1,6 +1,7 @@
 class UsersController < CrudController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
-  before_filter :authorize_admin, only: [:new, :create]
+  before_action :authorize, only: [:edit, :update]
+  before_action :authorize_admin, only: [:new, :create]
 
   def index
     @users = User.paginate(:page => params[:page])
@@ -26,6 +27,10 @@ class UsersController < CrudController
   end
 
   private
+
+  def authorize
+    redirect_to edit_user_path(current_user) unless current_user.id == @user.id || current_user.admin?
+  end
 
   def set_user
     @user = User.find(params[:id])
