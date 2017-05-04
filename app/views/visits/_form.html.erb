@@ -123,6 +123,7 @@
 
   function updateValues() {
     if (($('#visit_building_id').val() == '') && ($('#visit_owner_id').val() == '')) {
+      $('#visit_key_id').html('');
       $('#visit_key_id').attr("disabled", true);
 
       var buildings = <%= Building.actives.to_json(only: [:id, :code]).html_safe %>;
