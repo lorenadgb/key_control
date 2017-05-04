@@ -23,6 +23,7 @@ gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary'
 gem 'jquery_mask_rails'
 gem 'responders'
+gem 'select2-rails'
 
 gem 'jquery-rails'
 gem 'turbolinks', '~> 5'
