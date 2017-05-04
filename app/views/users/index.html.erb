@@ -21,9 +21,9 @@
         <td><%= link_to user.id, user_path(user) %></td>
         <td><%= user.name %></td>
         <td><%= user.email %></td>
-        <td><%= user.active %></td>
-        <td><%= user.created_at %></td>
-        <td><%= user.updated_at %></td>
+        <td><%= t user.active.class %></td>
+        <td><%= I18n.l(user.created_at, format: :default) %></td>
+        <td><%= I18n.l(user.updated_at, format: :default) %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_user_path(user), :class => 'btn btn-default btn-xs' %>
