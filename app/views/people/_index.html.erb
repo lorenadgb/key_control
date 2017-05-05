@@ -34,7 +34,7 @@
   </tbody>
 </table>
 
-<%= will_paginate @people, params: {active_tab: 'people'} %>
+<%= will_paginate @people, params: {tab: @personable_type} %>
 </br>
 
 <%= link_to t('.new', :default => t("helpers.links.new")),
