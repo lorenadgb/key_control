@@ -37,6 +37,6 @@ class KeysController < CrudController
     end
 
     def key_params
-      params.require(:key).permit(:code, :description)
+      params.require(:key).permit(:code, :observation)
     end
 end

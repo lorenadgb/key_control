@@ -46,6 +46,6 @@ class BuildingsController < CrudController
   def building_params
     params.require(:building).permit(:code, :person, :person_id, :building_type, :observation, :active, :status,
                                      address_attributes: [:id, :name, :number, :complement, :city, :neighborhood, :street_type, :observation, :cep],
-                                     keys_attributes: [:id, :code, :description, :_destroy])
+                                     keys_attributes: [:id, :code, :observation, :_destroy])
   end
 end
