@@ -15,9 +15,9 @@
   <% @people.each do |person| %>
       <tr>
         <td><%= link_to person.id, person_path(person) %></td>
-        <td><%= person.name %></td>
+        <td><%= truncate(person.name, length: 48) %></td>
         <td><%= person.cpf_cnpj %></td>
-        <td><%= person.email %></td>
+        <td><%= truncate(person.email, length: 20) %></td>
         <td><%= person.phone_number %></td>
         <td><%= person.mobile_number %></td>
         <td>
