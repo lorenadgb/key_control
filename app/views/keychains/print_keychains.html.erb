@@ -11,6 +11,7 @@
             <p style="text-align: center"><%= "#{key.building.address.street_type_humanize} #{key.building.address.name}" %></p>
             <p style="text-align: center"><%= "Nº #{key.building.address.number}" %> <%= "- #{key.building.address.complement}" unless key.building.address.complement.nil? %></p>
             <p style="text-align: center"><%= "#{key.building.address.neighborhood}" %></p>
+            <p style="text-align: center"><%= "#{key.observation}" %></p>
           </strong>
         </td>
       <% end %>
