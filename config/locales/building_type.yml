@@ -3,5 +3,8 @@ pt-BR:
     building_type:
       apartment: Apartamento
       home: Casa
+      plot: Lote
       room: Sala
+      shed: Galpão
       shop: Loja
+      small_farm: Sítio
