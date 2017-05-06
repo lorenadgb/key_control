@@ -18,4 +18,8 @@ class Key < ApplicationRecord
   def update_key_status_to_available
     update_column :status, KeyStatus::AVAILABLE
   end
+
+  def code=(value)
+    self[:code] = value.gsub(/\s+/, '')
+  end
 end
