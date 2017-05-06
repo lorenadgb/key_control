@@ -1,4 +1,5 @@
 class Key < ApplicationRecord
+  self.per_page = 96
 
   belongs_to :building, optional: true
 
