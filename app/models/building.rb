@@ -3,12 +3,13 @@ class Building < ApplicationRecord
 
   belongs_to :person
 
-  validates :building_type, :person, :code, presence: true
+  validates :building_type, :source, :person, :code, presence: true
 
   validate :at_least_one_key
 
   has_enumeration_for :building_type
   has_enumeration_for :status, with: BuildingStatus
+  has_enumeration_for :source, with: BuildingSource
 
   has_one :address, as: :addressable, dependent: :destroy
   accepts_nested_attributes_for :address
@@ -33,6 +34,10 @@ class Building < ApplicationRecord
 
   def enable
     update_column :active, true
+  end
+
+  def prefix
+    "#{source_humanize.upcase[0]}"
   end
 
   private

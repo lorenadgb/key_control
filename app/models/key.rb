@@ -4,6 +4,7 @@ class Key < ApplicationRecord
   belongs_to :building, optional: true
 
   validates :code, presence: true
+  validates :code, numericality: {only_integer: true}
 
   scope :by_code, -> (code){ where( code: code ) }
   scope :by_building_id, -> (building_id){ where( building_id: building_id ) }
@@ -21,5 +22,9 @@ class Key < ApplicationRecord
 
   def code=(value)
     self[:code] = value.gsub(/\s+/, '')
+  end
+
+  def code_with_prefix
+    "#{self.building.prefix}#{self.code}"
   end
 end

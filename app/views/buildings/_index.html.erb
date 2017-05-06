@@ -4,6 +4,7 @@
   <tr>
     <th><%= model_class.human_attribute_name(:id) %></th>
     <th><%= model_class.human_attribute_name(:code) %></th>
+    <th><%= model_class.human_attribute_name(:source) %></th>
     <th><%= model_class.human_attribute_name(:building_type) %></th>
     <th><%= model_class.human_attribute_name(:person) %></th>
     <th><%= model_class.human_attribute_name(:active) %></th>
@@ -16,6 +17,7 @@
       <tr>
         <td><%= link_to building.id, building_path(building) %></td>
         <td><%= building.code %></td>
+        <td><%= building.source_humanize %></td>
         <td><%= building.building_type_humanize %></td>
         <td><%= building.person.name %></td>
         <td><%= t building.active.class %></td>

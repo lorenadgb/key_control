@@ -1,0 +1,5 @@
+pt-BR:
+  enumerations:
+    building_source:
+      rent: Aluguel
+      sale: Venda
