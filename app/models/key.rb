@@ -11,6 +11,7 @@ class Key < ApplicationRecord
   scope :by_owner_id, -> (owner_id){ Key.joins(:building).where(buildings: {person_id: owner_id}) }
   scope :availables, -> { Key.joins(:building).where(buildings: {status: BuildingStatus::AVAILABLE}).where( status: KeyStatus::AVAILABLE ) }
   scope :actives, -> { Key.joins(:building).where(buildings: {active: true}) }
+  scope :order_by_source_and_code, ->{ order('buildings.source asc, keys.code::integer asc') }
 
   def update_key_status_to_borrowed
     update_column :status, KeyStatus::BORROWED
