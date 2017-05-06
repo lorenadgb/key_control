@@ -30,3 +30,5 @@
     <% end %>
   </div>
 <% end %>
+
+<%= will_paginate @keys, params: {tab: 'key'}, renderer: BootstrapPagination::Rails %>
