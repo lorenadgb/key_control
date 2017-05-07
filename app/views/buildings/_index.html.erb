@@ -41,7 +41,7 @@
   </tbody>
 </table>
 
-<%= will_paginate @buildings, params: {tab: 'building'}, renderer: BootstrapPagination::Rails %>
+<%= will_paginate @buildings, param_name: 'building', params: {tab: 'building'}, renderer: BootstrapPagination::Rails %>
 </br>
 
 <%= link_to t('.new', :default => t("helpers.links.new")),

@@ -34,7 +34,7 @@
   </tbody>
 </table>
 
-<%= will_paginate @people, params: {tab: @personable_type}, renderer: BootstrapPagination::Rails %>
+<%= will_paginate @people, param_name: @personable_type, params: {tab: @personable_type}, renderer: BootstrapPagination::Rails %>
 </br>
 
 <%= link_to t('.new', :default => t("helpers.links.new")),
