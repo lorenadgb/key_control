@@ -3,6 +3,7 @@ class Person < ApplicationRecord
 
   validates :name, :personable_type, :person_type, presence: true
   validates :email, format: { with: /\A([\w+\-].?)+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i }, allow_nil: true, if: :email?
+  validates :cpf_cnpj, uniqueness: true, if: :validates_uniqueness_cpf_cnpj
 
   has_enumeration_for :gender
   has_enumeration_for :personable_type
@@ -29,6 +30,10 @@ class Person < ApplicationRecord
   end
 
   private
+
+  def validates_uniqueness_cpf_cnpj
+    true if self.class.where( cpf_cnpj: self.cpf_cnpj).where( personable_type: self.personable_type).any? && !self.cpf_cnpj.empty?
+  end
 
   def has_visits?
     if Visit.by_owner_id(self.id).any? || Visit.by_realtor_id(self.id).any? || Visit.by_visitor_id(self.id).any?
