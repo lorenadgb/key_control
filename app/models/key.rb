@@ -13,6 +13,8 @@ class Key < ApplicationRecord
   scope :actives, -> { Key.joins(:building).where(buildings: {active: true}) }
   scope :order_by_source_and_code, ->{ order('buildings.source asc, keys.code::integer asc') }
   scope :by_source, -> (source){ Key.joins(:building).where(buildings: {source: source}) }
+  scope :gteq_code, -> (code){ where( "keys.code::integer >= #{code.to_i}" ) }
+  scope :lteq_code, -> (code){ where( "keys.code::integer <= #{code.to_i}" ) }
 
   delegate :source, :to => :building
 

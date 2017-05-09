@@ -17,6 +17,16 @@
   </div>
 
   <div class="row">
+    <div class="col-xs-3">
+      <%= f.input :initial_sequence %>
+    </div>
+
+    <div class="col-xs-3">
+      <%= f.input :final_sequence %>
+    </div>
+  </div>
+
+  <div class="row">
     <div class="col-xs-5">
       <%= f.input :building, collection: Building.actives, label_method: :code, value_method: :id %>
     </div>
