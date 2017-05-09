@@ -1,13 +1,13 @@
 <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <table border="1" align="center">
   <% @keys.each_slice(5) do |keys| %>
-    <tr>
+    <table border="1" align="center">
+    <tr style="page-break-inside: avoid;">
       <% keys.each do |key| %>
-        <td style="width: 42mm;">
+        <td style="max-width: 42mm; height: 80mm; width: 0px; page-break-inside: avoid !important;">
           <strong>
             <p style="text-align: center">Código: <%= key.building.code %></p>
-            <p style="text-align: center"><%= key.code %></p>
-            <br>
+            <p style="text-align: center"><%= key.code_with_prefix %></p>
             <p style="text-align: center"><%= "#{key.building.address.street_type_humanize} #{key.building.address.name}" %></p>
             <p style="text-align: center"><%= "Nº #{key.building.address.number}" %> <%= "- #{key.building.address.complement}" unless key.building.address.complement.nil? %></p>
             <p style="text-align: center"><%= "#{key.building.address.neighborhood}" %></p>
@@ -16,5 +16,6 @@
         </td>
       <% end %>
     </tr>
+    </table>
   <% end %>
 </table>

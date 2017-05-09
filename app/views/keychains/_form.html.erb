@@ -1,6 +1,15 @@
 <%= simple_form_for :keychain, :url => url_for(:action => 'print', :controller => 'keychains'), defaults: { required: false }, :method => 'post' do |f| %>
   <%= f.input :all, as: :boolean %>
 
+  <%= f.label :source do %>
+    <%= f.radio_button :source, :rent, checked: true %>
+    Aluguel
+  <% end %>
+  <%= f.label :source do %>
+    <%= f.radio_button :source, :sale %>
+    Venda
+  <% end %>
+  <br><br>
   <div class="row">
     <div class="col-xs-3">
       <%= f.input :key_code %>
@@ -39,4 +48,6 @@
   $("#keychain_building").select2({
     theme: 'bootstrap'
   });
+
+  $('#keychain_key_code').regexMask(/^\d+$/);
 </script>

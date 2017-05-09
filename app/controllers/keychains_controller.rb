@@ -27,6 +27,6 @@ class KeychainsController < CrudController
   protected
 
   def keychain_params
-    params[:keychain].permit(:all, :key_code, :building, :owner)
+    params[:keychain].permit(:all, :key_code, :building, :owner, :source)
   end
 end

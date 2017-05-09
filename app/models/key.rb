@@ -12,6 +12,7 @@ class Key < ApplicationRecord
   scope :availables, -> { Key.joins(:building).where(buildings: {status: BuildingStatus::AVAILABLE}).where( status: KeyStatus::AVAILABLE ) }
   scope :actives, -> { Key.joins(:building).where(buildings: {active: true}) }
   scope :order_by_source_and_code, ->{ order('buildings.source asc, keys.code::integer asc') }
+  scope :by_source, -> (source){ Key.joins(:building).where(buildings: {source: source}) }
 
   delegate :source, :to => :building
 

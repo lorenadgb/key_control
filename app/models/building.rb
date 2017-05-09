@@ -21,6 +21,7 @@ class Building < ApplicationRecord
 
   scope :actives, -> { where( active: true ) }
   scope :by_person_id, -> (person_id){ where( person_id: person_id ) }
+  scope :by_source, -> (source){ where(source: source) }
 
   default_scope { order(created_at: :desc) }
 
