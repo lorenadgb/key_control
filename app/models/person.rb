@@ -24,6 +24,10 @@ class Person < ApplicationRecord
   before_destroy :has_visits?
   before_destroy :has_buildings?
 
+  def self.search(value)
+    value ? where("name ILIKE :value OR cpf_cnpj ILIKE :value OR email ILIKE :value", value: "%#{value}%") : all
+  end
+
   private
 
   def has_visits?

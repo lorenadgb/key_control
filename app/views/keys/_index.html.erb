@@ -1,4 +1,24 @@
-<br>
+</br>
+<div class="input-group">
+  <%= form_tag pages_path, method: :get, class: 'form-inline' do %>
+    <div class="form-group">
+      <%= label_tag :source do %>
+          <%= radio_button_tag :source, :rent, checked: true %>
+          Aluguel
+      <% end %>
+      <%= label_tag :source do %>
+          <%= radio_button_tag :source, :sale %>
+          Venda
+      <% end %>
+      <div class="input-group">
+        <%= text_field_tag :search, nil, class: 'form-control' %>
+      </div>
+        <%= submit_tag 'Pesquisar', class: "btn btn-default" %>
+        <%= hidden_field_tag :tab, 'key' %>
+    </div>
+  <% end %>
+</div>
+</br>
 <% @keys.each_slice(12) do |keys| %>
   <div class="col-sm-12">
     <div class="row">

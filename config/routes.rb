@@ -26,4 +26,6 @@ Rails.application.routes.draw do
   get 'update_keys'      => 'visits#update_keys', via: :get
   get 'update_buildings' => 'visits#update_buildings', via: :get
   get 'update_owner'    => 'visits#update_owner', via: :get
+
+  get 'index' => 'pages#index', via: :get, as: 'pages'
 end

@@ -13,6 +13,8 @@ class Key < ApplicationRecord
   scope :actives, -> { Key.joins(:building).where(buildings: {active: true}) }
   scope :order_by_source_and_code, ->{ order('buildings.source asc, keys.code::integer asc') }
 
+  delegate :source, :to => :building
+
   def update_key_status_to_borrowed
     update_column :status, KeyStatus::BORROWED
   end
@@ -27,5 +29,9 @@ class Key < ApplicationRecord
 
   def code_with_prefix
     "#{self.building.prefix}#{self.code}"
+  end
+
+  def self.search(value, source)
+    value ? where("keys.code ILIKE :value AND source = '#{source}'", value: "%#{value}%") : all
   end
 end

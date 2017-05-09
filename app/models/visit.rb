@@ -35,6 +35,10 @@ class Visit < ApplicationRecord
     update_column :finished_at, Time.now
   end
 
+  def self.search(value)
+    value ? joins(:key).joins(:building).joins(:realtor).where("buildings.code ILIKE :value OR keys.code ILIKE :value OR people.name ILIKE :value", value: "%#{value}%") : all
+  end
+
   private
 
   def check_if_the_key_is_available
