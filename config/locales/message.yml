@@ -12,6 +12,9 @@ pt-BR:
     keychain:
       errors:
         not_found: Não foi encontrada nenhuma chave com os filtros selecionados
+    building_report:
+      errors:
+        not_found: Não foi encontrada nenhum imóvel com os filtros selecionados
     building:
       notices:
         was_disabled: Imóvel foi desativado

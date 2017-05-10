@@ -28,4 +28,7 @@ Rails.application.routes.draw do
   get 'update_owner'    => 'visits#update_owner', via: :get
 
   get 'index' => 'pages#index', via: :get, as: 'pages'
+
+  get  'generate_building_report' => 'building_reports#generate', via: :get
+  post 'generate_building_report' => 'building_reports#generate', via: :post
 end

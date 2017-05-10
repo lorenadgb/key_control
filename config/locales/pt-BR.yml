@@ -18,6 +18,16 @@ pt-BR:
         initial_sequence: 'Sequência inicial'
         key_code: 'Código da chave'
         owner: 'Proprietário'
+      building_report:
+        active: 'Ativos'
+        all: 'Todos'
+        building: 'Imóvel'
+        building_type: 'Tipo de imóvel'
+        final_sequence: 'Sequência final'
+        initial_sequence: 'Sequência inicial'
+        key_code: 'Código da chave'
+        owner: 'Proprietário'
+        source: 'Origem'
   date:
     abbr_day_names:
     - Dom

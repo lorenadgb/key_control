@@ -1,0 +1,75 @@
+<%= simple_form_for :building_report, :url => url_for(:action => 'generate', :controller => 'building_reports'), defaults: { required: false }, :method => 'post' do |f| %>
+  <%= f.input :all, as: :boolean %>
+
+  <%= f.input :active, as: :boolean %>
+
+  <div class="row">
+    <div class="col-xs-3">
+      <%= f.input :source, collection: BuildingSource %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-3">
+      <%= f.input :status, collection: BuildingStatus %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-3">
+      <%= f.input :building_type, collection: BuildingType %>
+    </div>
+
+    <div class="col-xs-5">
+      <%= f.input :owner, collection: Person.owners %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-3">
+      <%= f.input :initial_sequence %>
+    </div>
+
+    <div class="col-xs-3">
+      <%= f.input :final_sequence %>
+    </div>
+  </div>
+
+  <%= f.button :submit, 'Gerar' %>
+<% end %>
+
+<script>
+  $('#building_report_all').change(function() {
+    if (this.checked) {
+      $('#building_report_active').attr('disabled', true);
+      $('#building_report_source').attr('disabled', true);
+      $('#building_report_building_type').attr('disabled', true);
+      $('#building_report_status').attr('disabled', true);
+      $('#building_report_owner').attr('disabled', true);
+      $('#building_report_initial_sequence').attr('disabled', true);
+      $('#building_report_final_sequence').attr('disabled', true);
+    } else {
+      $('#building_report_active').attr('disabled', false);
+      $('#building_report_source').attr('disabled', false);
+      $('#building_report_building_type').attr('disabled', false);
+      $('#building_report_status').attr('disabled', false);
+      $('#building_report_owner').attr('disabled', false);
+      $('#building_report_initial_sequence').attr('disabled', false);
+      $('#building_report_final_sequence').attr('disabled', false);
+    }
+  });
+
+  $("#building_report_source").select2({
+    theme: 'bootstrap'
+  });
+  $("#building_report_building_type").select2({
+    theme: 'bootstrap'
+  });
+  $("#building_report_status").select2({
+    theme: 'bootstrap'
+  });
+  $("#building_report_owner").select2({
+    theme: 'bootstrap'
+  });
+
+</script>

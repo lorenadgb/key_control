@@ -1,0 +1,27 @@
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<% @buildings.order_by_key_code.group_by(&:source).each do |source, buildings| %>
+  <table border="1" width="100%" align="center">
+  <thead>
+    <td colspan="4"><b><%= buildings.first.source_humanize %></b></td>
+    <tr>
+      <th>Chave</th>
+      <th>Endereço</th>
+      <th>Código do Imóvel</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% buildings.each do |building| %>
+    <% building.keys.each do |key| %>
+      <tr>
+        <td><%= key.code_with_prefix %></td>
+        <td><%= building.full_address %></td>
+        <td><%= building.code %></td>
+        <td><%= building.status_humanize %></td>
+      </tr>
+    <% end %>
+  <% end %>
+  </tbody>
+  </table>
+  <br>
+<% end %>

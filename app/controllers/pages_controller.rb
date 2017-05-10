@@ -1,7 +1,7 @@
 class PagesController < CrudController
 
   def index
-    @buildings = Building.paginate(page: params['building'])
+    @buildings = Building.paginate(page: params['building']).order_by_created_at
     @keys      = Key.paginate(page: params['key']).order_by_source_and_code.actives
     @people    = Person.paginate(page: params['people'])
     @owners    = Person.owners.paginate(page: params['owner'])

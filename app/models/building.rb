@@ -22,8 +22,13 @@ class Building < ApplicationRecord
   scope :actives, -> { where( active: true ) }
   scope :by_person_id, -> (person_id){ where( person_id: person_id ) }
   scope :by_source, -> (source){ where(source: source) }
+  scope :by_status, -> (status){ where(status: status) }
+  scope :by_type, -> (type){ where(building_type: type) }
+  scope :gteq_code, -> (code){ where( "code::integer >= #{code.to_i}" ) }
+  scope :lteq_code, -> (code){ where( "code::integer <= #{code.to_i}" ) }
 
-  default_scope { order(created_at: :desc) }
+  scope :order_by_key_code, -> { Building.joins(:keys).order('keys.code::integer asc') }
+  scope :order_by_created_at, -> { order(created_at: :desc) }
 
   delegate :full_address, to: :address
 

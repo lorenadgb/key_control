@@ -20,4 +20,5 @@ pt-BR:
       save: "Salvar %{model}"
       new: "Criar %{model}"
       delete: "Deletar %{model}"
+      building_report: 'Relatório de Imóveis'
       print: 'Impressão'
