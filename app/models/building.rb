@@ -25,6 +25,8 @@ class Building < ApplicationRecord
 
   default_scope { order(created_at: :desc) }
 
+  delegate :full_address, to: :address
+
   def can_be_disabled?
     if Visit.by_building_id(self.id).empty?
       update_column :active, false
