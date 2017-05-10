@@ -11,6 +11,7 @@ pt-BR:
         building_type: Tipo de imóvel
         code: Código
         created_at: Criado em
+        name: Nome do Imóvel
         observation: Observação
         person: Proprietário
         source: Origem
