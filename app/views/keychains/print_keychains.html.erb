@@ -4,7 +4,7 @@
     <table border="1" align="center">
     <tr style="page-break-inside: avoid;">
       <% keys.each do |key| %>
-        <td style="max-width: 42mm; height: 80mm; width: 0px; page-break-inside: avoid !important;">
+        <td>
           <strong>
             <p style="text-align: center">Código: <%= key.building.code %></p>
             <p style="text-align: center"><%= key.code_with_prefix %></p>
@@ -19,3 +19,11 @@
     </table>
   <% end %>
 </table>
+
+<style type="text/css">
+  table { border-collapse: collapse }
+  td    { border: 1px solid black; vertical-align: center }
+  td    { max-width: 42mm; min-width: 42mm; height: 80mm; width: 0px; page-break-inside: avoid !important }
+  table thead { display: table-header-group; }
+  table tr { page-break-inside: avoid; }
+</style>
