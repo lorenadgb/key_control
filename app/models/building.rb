@@ -49,7 +49,7 @@ class Building < ApplicationRecord
   end
 
   def self.search(value)
-    value ? joins(:person).where("code ILIKE :value OR name ILIKE :value OR cpf_cnpj ILIKE :value OR email ILIKE :value", value: "%#{value}%") : all
+    value ? joins(:person).where("code ILIKE :value OR people.name ILIKE :value OR cpf_cnpj ILIKE :value OR email ILIKE :value", value: "%#{value}%") : all
   end
 
   private
