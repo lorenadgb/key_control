@@ -4,6 +4,7 @@ class Building < ApplicationRecord
   belongs_to :person
 
   validates :status, :building_type, :source, :person, :code, presence: true
+  validates :code, uniqueness: true
 
   validate :at_least_one_key
 
