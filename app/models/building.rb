@@ -24,6 +24,7 @@ class Building < ApplicationRecord
   scope :by_person_id, -> (person_id){ where( person_id: person_id ) }
   scope :by_source, -> (source){ where(source: source) }
   scope :by_status, -> (status){ where(status: status) }
+  scope :availables, -> { where(status: BuildingStatus::AVAILABLE) }
   scope :by_type, -> (type){ where(building_type: type) }
   scope :gteq_code, -> (code){ where( "code::integer >= #{code.to_i}" ) }
   scope :lteq_code, -> (code){ where( "code::integer <= #{code.to_i}" ) }
