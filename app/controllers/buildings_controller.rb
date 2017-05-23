@@ -1,5 +1,5 @@
 class BuildingsController < CrudController
-  before_action :set_building, only: [:show, :edit, :update, :enable, :disable]
+  before_action :set_building, only: [:show, :edit, :update, :destroy, :enable, :disable]
 
   def index
     @buildings = Building.paginate(:page => params[:page])
@@ -19,6 +19,13 @@ class BuildingsController < CrudController
   def update
     @building.update(building_params)
     respond_with(@building, location: @building)
+  end
+
+  def destroy
+    @building.destroy
+    respond_with(@building, location: root_path(tab: 'building'), responder: Buildings::DestroyResponder)
+
+    redirect_to root_path(tab: 'building')
   end
 
   def enable

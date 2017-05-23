@@ -25,6 +25,9 @@ pt-BR:
     actions:
       <<: *male
 
+    buildings:
+      <<: *female
+
     keys:
       <<: *female
 

@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   end
   resources :addresses
   resources :people, except: [:index]
-  resources :buildings, except: [:index, :destroy] do
+  resources :buildings, except: [:index] do
     collection do
       get 'disable/:id' => 'buildings#disable', as: 'disable'
       get 'enable/:id' => 'buildings#enable', as: 'enable'
