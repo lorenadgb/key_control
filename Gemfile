@@ -25,6 +25,7 @@ gem 'jquery_mask_rails'
 gem 'responders'
 gem 'select2-rails'
 gem 'will_paginate-bootstrap'
+gem 'range_sentence_parser'
 
 gem 'jquery-rails'
 gem 'turbolinks', '~> 5'
