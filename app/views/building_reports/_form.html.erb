@@ -1,7 +1,7 @@
 <%= simple_form_for :building_report, :url => url_for(:action => 'generate', :controller => 'building_reports'), defaults: { required: false }, :method => 'post' do |f| %>
   <%= f.input :all, as: :boolean %>
 
-  <%= f.input :active, as: :boolean %>
+  <%= f.input :active, as: :boolean, input_html: { checked: true } %>
 
   <div class="row">
     <div class="col-xs-3">
