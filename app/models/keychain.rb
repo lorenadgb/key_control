@@ -2,7 +2,8 @@ class Keychain < ApplicationRecord
 
   def self.filter(params)
     resources = Key.all
-    resources = resources.by_code(params[:key_code])           unless params[:key_code].blank?
+
+    resources = resources.by_code(codes(params[:key_code]))    unless params[:key_code].blank?
     resources = resources.by_building_id(params[:building])    unless params[:building].blank?
     resources = resources.by_owner_id(params[:owner])          unless params[:owner].blank?
     resources = resources.by_source(params[:source])           if params[:all] == '0'
@@ -12,4 +13,7 @@ class Keychain < ApplicationRecord
     resources.order_by_source_and_code.actives
   end
 
+  def self.codes(code_range)
+    RangeSentenceParser.parse!(code_range)
+  end
 end
