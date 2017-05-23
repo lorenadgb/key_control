@@ -1,0 +1,39 @@
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+<div style="text-align: center;">
+  <h1>Relatório de Chaves</h1>
+</div>
+
+<% @keys.map(&:building).group_by(&:source).each do |source, buildings| %>
+    <table border="1" width="100%" align="center">
+      <thead>
+      <td colspan="5"><b><%= buildings.first.source_humanize %></b></td>
+      <tr>
+        <th>Chave</th>
+        <th>Código do Imóvel</th>
+        <th>Nome do Imóvel</th>
+        <th>Endereço</th>
+      </tr>
+      </thead>
+      <tbody>
+      <% buildings.each do |building| %>
+        <% building.keys.each do |key| %>
+          <tr>
+            <td><%= key.code_with_prefix %></td>
+            <td><%= building.code %></td>
+            <td><%= building.name %></td>
+            <td><%= building.full_address %></td>
+          </tr>
+        <% end %>
+      <% end %>
+      </tbody>
+    </table>
+    <br>
+<% end %>
+
+<style type="text/css">
+  table { border-collapse: collapse }
+  td    { border: 1px solid black; vertical-align: top }
+  table thead { display: table-header-group; }
+  table tr { page-break-inside: avoid; }
+</style>

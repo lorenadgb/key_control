@@ -21,4 +21,5 @@ pt-BR:
       new: "Criar %{model}"
       delete: "Deletar %{model}"
       building_report: 'Relatório de Imóveis'
+      key_report: 'Relatório de Chaves'
       print: 'Impressão'

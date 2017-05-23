@@ -31,4 +31,6 @@ Rails.application.routes.draw do
 
   get  'generate_building_report' => 'building_reports#generate', via: :get
   post 'generate_building_report' => 'building_reports#generate', via: :post
+
+  get  'report_key_report' => 'key_reports#report', via: :get
 end

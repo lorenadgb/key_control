@@ -1,0 +1,3 @@
+class KeyReport < ApplicationRecord
+
+end
