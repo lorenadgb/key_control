@@ -29,6 +29,7 @@ class RealStateAgenciesController < CrudController
     def real_state_agency_params
       params.require(:real_state_agency).permit(:trade_name, :cnpj, :email, :mobile_number, :phone_number, :fax, :social_name,
                                                 :avatar,
-                                                address_attributes: [:id, :name, :number, :complement, :city, :neighborhood, :street_type, :observation])
+                                                address_attributes: [:id, :name, :number, :complement, :city, :neighborhood, :street_type, :observation],
+                                                setting_attributes: [:id, :display_blank_codes, :keychain_height, :keychain_width, :max_number_of_keys_per_type])
     end
 end

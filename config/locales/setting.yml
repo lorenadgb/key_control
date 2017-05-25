@@ -1,0 +1,13 @@
+pt-BR:
+  activerecord:
+    models:
+      setting:
+        one: Configuração
+        other: Configurações
+
+    attributes:
+      setting:
+        display_blank_codes: Exibir linhas em branco?
+        keychain_height: Altura do chaveiro
+        keychain_width: Largura do chaveiro
+        max_number_of_keys_per_type: Quantidade de chaves

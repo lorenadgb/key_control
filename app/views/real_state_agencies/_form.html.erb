@@ -33,6 +33,10 @@
     </div>
   </div>
 
+  <%= f.simple_fields_for :setting, @real_state_agency.setting do |b| %>
+    <%= render 'settings/form', f: b %>
+  <% end %>
+  <br>
   <%= f.simple_fields_for :address, @real_state_agency.address do |b| %>
     <%= render 'addresses/form', f: b %>
   <% end %>

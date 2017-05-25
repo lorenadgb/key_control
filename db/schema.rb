@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170510182637) do
+ActiveRecord::Schema.define(version: 20170525224120) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -84,6 +84,17 @@ ActiveRecord::Schema.define(version: 20170510182637) do
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
     t.string   "avatar"
+  end
+
+  create_table "settings", force: :cascade do |t|
+    t.boolean  "display_blank_codes",         default: true
+    t.integer  "keychain_height"
+    t.integer  "keychain_width"
+    t.integer  "real_state_agency_id"
+    t.datetime "created_at",                                 null: false
+    t.datetime "updated_at",                                 null: false
+    t.integer  "max_number_of_keys_per_type"
+    t.index ["real_state_agency_id"], name: "index_settings_on_real_state_agency_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|

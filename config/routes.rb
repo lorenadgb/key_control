@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   end
 
   resources :visits, except: [:index]
+  resources :settings
 
   get 'set_status_to_available' => 'keys#set_status_to_available', via: :get
   get 'update_keys'      => 'visits#update_keys', via: :get

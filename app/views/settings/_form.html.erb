@@ -1,0 +1,29 @@
+<div class="page-header">
+  <h1>
+    <small><%= Setting.model_name.human %></small>
+  </h1>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-4">
+      <%= f.input :display_blank_codes, as: :boolean, input_html: { checked: true } %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-3">
+      <%= f.input :keychain_height %>
+    </div>
+
+    <div class="col-xs-4 col-sm-offset-1">
+      <%= f.input :keychain_width %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-4">
+      <%= f.input :max_number_of_keys_per_type %>
+    </div>
+  </div>
+</div>
