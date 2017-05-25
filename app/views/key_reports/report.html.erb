@@ -4,7 +4,7 @@
   <h1>Relatório de Chaves</h1>
 </div>
 
-<% @keys.map(&:building).group_by(&:source).each do |source, buildings| %>
+<% @keys.order_by_source_and_code.map(&:building).group_by(&:source).each do |source, buildings| %>
     <table border="1" width="100%" align="center">
       <thead>
       <td colspan="5"><b><%= buildings.first.source_humanize %></b></td>
