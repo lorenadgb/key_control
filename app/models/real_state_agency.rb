@@ -12,6 +12,8 @@ class RealStateAgency < ApplicationRecord
   has_one :setting, dependent: :destroy
   accepts_nested_attributes_for :setting
 
+  delegate :display_blank_codes, :keychain_height, :keychain_width, :max_number_of_keys_per_type, to: :setting
+
   private
 
   def only_one_row
