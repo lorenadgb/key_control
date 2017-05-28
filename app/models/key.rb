@@ -37,4 +37,16 @@ class Key < ApplicationRecord
   def self.search(value, source)
     value ? where("keys.code ILIKE :value AND source = '#{source}'", value: "%#{value}%") : all
   end
+
+  def self.codes_not_in_use(source)
+    [(1..max_number_of_keys_per_type).to_a.map(&:to_s)].flatten - [self.availables.by_source(source).order_by_source_and_code.map(&:code)].flatten
+  end
+
+  def self.max_number_of_keys_per_type
+    real_state_agency.max_number_of_keys_per_type
+  end
+
+  def self.real_state_agency
+    RealStateAgency.first
+  end
 end
