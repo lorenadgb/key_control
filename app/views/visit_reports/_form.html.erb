@@ -1,0 +1,54 @@
+<%= simple_form_for :visit_report, :url => url_for(:action => 'generate', :controller => 'visit_reports'), defaults: { required: false }, :method => 'post' do |f| %>
+
+  <div class="row">
+    <div class="col-xs-3">
+      <%= f.input :start %>
+    </div>
+
+    <div class="col-xs-3 col-sm-offset-1">
+      <%= f.input :finish %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-5">
+      <%= f.input :realtor, collection: Person.realtors %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-5">
+      <%= f.input :visitor, collection: Person.visitors %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-5">
+      <%= f.input :owner, collection: Person.owners %>
+    </div>
+
+    <div class="col-xs-5 col-sm-offset-1">
+      <%= f.input :building, label_method: :code, value_method: :id, collection: Building.all %>
+    </div>
+  </div>
+
+  <%= f.button :submit, 'Gerar' %>
+<% end %>
+
+<script>
+  $("#visit_report_source").select2({
+    theme: 'bootstrap'
+  });
+  $("#visit_report_building_type").select2({
+    theme: 'bootstrap'
+  });
+  $("#visit_report_status").select2({
+    theme: 'bootstrap'
+  });
+  $("#visit_report_owner").select2({
+    theme: 'bootstrap'
+  });
+
+  $('#visit_report_start').mask('00/00/0000');
+  $('#visit_report_finish').mask('00/00/0000');
+</script>

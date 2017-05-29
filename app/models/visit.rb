@@ -22,6 +22,10 @@ class Visit < ApplicationRecord
   scope :by_visitor_id, ->(visitor) { where( visitor_id: visitor ) }
   scope :by_realtor_id, ->(realtor) { where( realtor_id: realtor ) }
   scope :by_building_id, ->(building) { where( building_id: building ) }
+  scope :gteq_start_at, ->(start_at) { where(arel_table[:start_at].gteq(start_at)) }
+  scope :lteq_finished_at, ->(finished_at) { where(arel_table[:finished_at].lteq(finished_at))}
+
+  scope :ordered, -> { order(created_at: :asc) }
 
   def set_status_to_borrowed
     self.key.update_key_status_to_borrowed

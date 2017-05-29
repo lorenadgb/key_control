@@ -28,6 +28,14 @@ pt-BR:
         key_code: 'Código da chave'
         owner: 'Proprietário'
         source: 'Origem'
+      visit_report:
+        building: 'Imóvel'
+        finish: 'Finalizado em'
+        key: 'Chave'
+        owner: 'Proprietário'
+        realtor: 'Corretor'
+        start: 'Iniciado em'
+        visitor: 'Visitante'
   date:
     abbr_day_names:
     - Dom

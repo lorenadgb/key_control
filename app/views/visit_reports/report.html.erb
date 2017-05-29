@@ -1,0 +1,41 @@
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+<div style="text-align: center;">
+  <h1>Relatório de Visitas</h1>
+</div>
+
+<table border="1" width="100%">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Corretor</th>
+      <th>Proprietário</th>
+      <th>Visitante</th>
+      <th>Imóvel</th>
+      <th>Chave</th>
+      <th>Início</th>
+      <th>Fim</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @visits.each do |visit| %>
+        <tr>
+          <td><%= visit.id %></td>
+          <td><%= visit.realtor.name %></td>
+          <td><%= visit.owner.name %></td>
+          <td><%= visit.visitor.name %></td>
+          <td><%= visit.building.code %></td>
+          <td><%= visit.key.code %></td>
+          <td><%= I18n.l(visit.start_at, format: :default) %></td>
+          <td><%= I18n.l(visit.finished_at, format: :default) if visit.finished_at %></td>
+        </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<style type="text/css">
+  table { border-collapse: collapse }
+  td    { border: 1px solid black; vertical-align: top }
+  table thead { display: table-header-group; }
+  table tr { page-break-inside: avoid; }
+</style>

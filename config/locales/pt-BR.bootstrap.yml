@@ -22,4 +22,5 @@ pt-BR:
       delete: "Deletar %{model}"
       building_report: 'Relatório de Imóveis'
       key_report: 'Relatório de Chaves'
+      visit_report: 'Relatório de Visitas'
       print: 'Impressão'

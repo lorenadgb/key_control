@@ -15,6 +15,9 @@ pt-BR:
     building_report:
       errors:
         not_found: Não foi encontrada nenhum imóvel com os filtros selecionados
+    visit_report:
+      errors:
+        not_found: Não foi encontrada nenhuma visita com os filtros selecionados
     building:
       notices:
         was_disabled: Imóvel foi desativado
