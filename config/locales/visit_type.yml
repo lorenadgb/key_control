@@ -1,0 +1,6 @@
+pt-BR:
+  enumerations:
+    visit_type:
+      evaluation: Avaliação
+      initial_inspection: Inspeção inicial
+      final_inspection: Inspeção final

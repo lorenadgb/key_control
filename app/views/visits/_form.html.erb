@@ -2,6 +2,12 @@
   <%= f.error_notification %>
 
   <div class="row">
+    <div class="col-xs-3">
+      <%= f.input :visit_type, collection: VisitType, readonly: @visit.persisted? %>
+    </div>
+  </div>
+
+  <div class="row">
     <div class="col-xs-5">
       <%= f.input :start_at, readonly: @visit.persisted? %>
     </div>

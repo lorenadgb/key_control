@@ -1,4 +1,5 @@
 class Visit < ApplicationRecord
+  extend EnumerateIt
 
   belongs_to :key
   belongs_to :building
@@ -7,6 +8,8 @@ class Visit < ApplicationRecord
   belongs_to :realtor, class_name: 'Person'
 
   validates :building_id, :key_id, :owner, :visitor, :realtor, :start_at, presence: true
+
+  has_enumeration_for :visit_type
 
   before_create do
     self.set_status_to_borrowed
