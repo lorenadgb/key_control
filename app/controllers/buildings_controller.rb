@@ -45,6 +45,13 @@ class BuildingsController < CrudController
     redirect_to root_path(tab: 'building')
   end
 
+  def update_keys
+    if params[:source]
+      keys = Key.codes_not_in_use(params[:source])
+      render json: keys.to_json
+    end
+  end
+
   private
   def set_building
     @building = Building.find(params[:id])

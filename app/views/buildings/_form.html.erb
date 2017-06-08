@@ -2,7 +2,7 @@
 
   <div class="row">
     <div class="col-xs-3">
-      <%= f.input :source, collection: BuildingSource %>
+      <%= f.input :source, collection: BuildingSource, include_blank: false %>
     </div>
   </div>
 
@@ -51,7 +51,7 @@
   <% end %>
 
   <div class='links'>
-    <%= link_to_add_association 'Adicionar outra chave', f, :keys, class: 'btn btn-default' %>
+    <%= link_to_add_association 'Adicionar outra chave', f, :keys, id: 'btn-add-another-key', class: 'btn btn-default' %>
   </div>
   </br>
 
@@ -65,5 +65,18 @@
 
   $("#building_person_id").select2({
     theme: 'bootstrap'
+  });
+
+  var url = '/update_keys?source=' + $('#building_source').val();
+  var listitems = [];
+
+  $.get(url, function(data) {
+    data.forEach(function(code){
+      listitems += '<option value="' + code + '">' + code + '</option>';
+    });
+
+    $.each($("[id^=building_keys_attributes_][id$=_code]"), function () {
+      $(this).append(listitems);
+    });
   });
 </script>

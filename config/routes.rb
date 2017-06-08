@@ -20,6 +20,8 @@ Rails.application.routes.draw do
     end
   end
 
+  get 'update_keys' => 'buildings#update_keys', via: :get
+
   resources :visits, except: [:index]
   resources :settings
 
