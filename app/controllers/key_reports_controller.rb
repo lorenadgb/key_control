@@ -15,9 +15,9 @@ class KeyReportsController < CrudController
   def print_not_in_use
     keys_not_in_use
     pdf = WickedPdf.new.pdf_from_string(
-        render_to_string(pdf: 'not_in_use', layout: false)
+        render_to_string('print_not_in_use', layout: false)
     )
-    send_data pdf, filename: 'not_in_use.pdf', type: 'application/pdf', disposition: 'inline'
+    send_data pdf, filename: 'not_in_use.pdf', type: 'application/pdf', disposition: 'attachment'
   end
 
   private

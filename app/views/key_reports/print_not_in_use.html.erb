@@ -1,0 +1,44 @@
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+<div style="text-align: center;">
+  <h1>Chaves não Utilizadas</h1>
+</div>
+
+<hr />
+
+<div style="text-align: center;">
+  <h2>Aluguel</h2>
+</div>
+
+<table align="center">
+  <% @rent_keys.flatten.each_slice(20) do |keys| %>
+    <tr>
+      <% keys.each do |key| %>
+        <td><%= key %></td>
+      <% end %>
+    </tr>
+  <% end %>
+</table>
+
+<div style="text-align: center;">
+  <h2>Venda</h2>
+</div>
+
+<table align="center">
+  <% @sale_keys.flatten.each_slice(20) do |keys| %>
+    <tr>
+      <% keys.each do |key| %>
+        <td><%= key %></td>
+      <% end %>
+    </tr>
+  <% end %>
+</table>
+
+<style type="text/css">
+  table {
+    border-collapse: separate;
+    border-spacing: 10px 0;
+  }
+
+  td { padding: 10px 0; }
+</style>
