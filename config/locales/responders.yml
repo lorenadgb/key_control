@@ -38,4 +38,4 @@ pt-BR:
       <<: *female
 
     visits:
-      << :*female
+      <<: *female
