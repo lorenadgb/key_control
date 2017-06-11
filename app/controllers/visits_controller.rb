@@ -21,7 +21,9 @@ class VisitsController < CrudController
 
   def destroy
     @visit.destroy
-    respond_with(@visit, location: root_path(tab: 'visit'))
+    respond_with(@visit, location: root_path(tab: 'visit'), responder: Visits::DestroyResponder)
+
+    redirect_to root_path(tab: 'visit')
   end
 
   def update_keys
