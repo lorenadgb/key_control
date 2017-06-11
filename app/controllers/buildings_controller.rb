@@ -23,9 +23,7 @@ class BuildingsController < CrudController
 
   def destroy
     @building.destroy
-    respond_with(@building, location: root_path(tab: 'building'), responder: Buildings::DestroyResponder)
-
-    redirect_to root_path(tab: 'building')
+    respond_with(@building, location: edit_building_path(@building), responder: Buildings::DestroyResponder)
   end
 
   def enable

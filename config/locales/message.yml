@@ -1,5 +1,11 @@
 pt-BR:
   models:
+    building:
+      errors:
+        has_visits: Possui visita(s) associada(s)
+    key:
+      errors:
+        has_visits: Possui visita(s) associada(s)
     person:
       errors:
         has_visit: Possui visita(s) associada(s) a algum imóvel de que é proprietário

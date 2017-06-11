@@ -3,6 +3,10 @@ class Key < ApplicationRecord
 
   belongs_to :building, optional: true
 
+  has_many :visits
+
+  before_destroy :has_visits?
+
   validates :code, presence: true
   validates :code, numericality: {only_integer: true}
 
@@ -48,5 +52,14 @@ class Key < ApplicationRecord
 
   def self.real_state_agency
     RealStateAgency.first
+  end
+
+  private
+
+  def has_visits?
+    if self.visits.any?
+      errors.add(:base, I18n.t('models.key.errors.has_visits'))
+      throw :abort
+    end
   end
 end
