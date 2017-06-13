@@ -34,12 +34,12 @@ gem 'jbuilder', '~> 2.5'
 group :development, :test do
   gem 'pry-byebug'
   gem 'rspec-rails'
-  gem 'factory_girl_rails'
 end
 
 group :test do
   gem 'database_cleaner'
   gem 'shoulda-matchers', git: 'https://github.com/thoughtbot/shoulda-matchers.git', branch: 'rails-5'
+  gem 'factory_girl_rails'
 end
 
 group :development do
