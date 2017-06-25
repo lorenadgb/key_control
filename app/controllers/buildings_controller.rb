@@ -44,8 +44,11 @@ class BuildingsController < CrudController
   end
 
   def update_keys
-    if params[:source]
+    if params[:source].present?
       keys = Key.codes_not_in_use(params[:source])
+      render json: keys.to_json
+    elsif params[:building_id].present?
+      keys = Key.by_building_id(params[:building_id])
       render json: keys.to_json
     end
   end
