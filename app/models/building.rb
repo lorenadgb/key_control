@@ -35,7 +35,7 @@ class Building < ApplicationRecord
   delegate :full_address, to: :address
 
   def can_be_disabled?
-    if Visit.by_building_id(self.id).empty?
+    if Visit.by_building_id(self.id).finished_at_is_nil.empty?
       update_column :active, false
     else
       false
