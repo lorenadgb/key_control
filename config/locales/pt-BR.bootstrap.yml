@@ -10,6 +10,7 @@ pt-BR:
       back: 'Voltar'
       cancel: 'Cancelar'
       confirm: 'Você tem certeza?'
+      finalize_visit: 'Você deseja finalizar visita?'
       destroy: 'Deletar'
       enable: 'Habilitar'
       disable: 'Desabilitar'
