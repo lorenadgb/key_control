@@ -57,7 +57,7 @@
 
   <%= f.button :submit, :class => 'btn-primary' %>
   <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-                buildings_path, :class => 'btn btn-default' %>
+              root_path(tab: 'building'), :class => 'btn btn-default' %>
 <% end %>
 
 <script>
